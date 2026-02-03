@@ -1,0 +1,95 @@
+{ config, pkgs, ... }:
+
+{
+  # boot
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  time.timeZone = "Asia/Shanghai";
+
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+  };
+
+  # network
+  networking.hostName = "ocean";
+
+  services.smartdns = {
+    enable = true;
+    settings = {
+      server = [
+        "119.29.29.29"
+        "223.5.5.5"
+        "114.114.114.114"
+        "8.8.8.8"
+        "1.1.1.1"
+      ];
+      speed-check-mode = "ping,tcp:80,tcp:443";
+      cache-size = 8192;
+    };
+  };
+
+  networking.networkmanager = {
+    enable = true;
+    dns = "none";
+  };
+
+  networking.nameservers = [ "127.0.0.1" ];
+
+  # fonts
+  fonts.packages = with pkgs; [
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    sarasa-gothic
+    noto-fonts-color-emoji
+    
+    nerd-fonts.symbols-only
+    font-awesome
+    material-design-icons
+  ];
+
+  fonts.fontconfig.enable = true;
+
+  # user
+  users.users.xen = {
+    isNormalUser = true;
+    description = "xen";
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
+  };
+
+  # input
+  i18n.inputMethod.enable = true;
+  i18n.inputMethod.type = "fcitx5";
+  i18n.inputMethod.fcitx5.addons = with pkgs; [
+    qt6Packages.fcitx5-chinese-addons
+  ];
+
+  environment.sessionVariables = {
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
+  };
+
+  # audio
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  # display
+  services.xserver.enable = true;
+  services.xserver.xkb = {
+    layout = "us";
+    variant = "";
+  };
+
+  # printing
+  services.printing.enable = true;
+
+}

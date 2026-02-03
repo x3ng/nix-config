@@ -13,6 +13,8 @@
     alacritty
     kitty
     wl-clipboard
+
+    home-manager
   ];
 
   programs.firefox.enable = true;

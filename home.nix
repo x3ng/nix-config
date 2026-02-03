@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+
+  home.username = "xen";
+  home.homeDirectory = "/home/xen";
+
   home.packages = with pkgs;[
     tmux
     tree
@@ -23,6 +27,7 @@
     zed-editor
     calibre
     thunderbird
+    tigervnc
   ];
 
   home.stateVersion = "25.11";

@@ -1,5 +1,7 @@
 {
+
   description = "nix flake config";
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
@@ -8,18 +10,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations.ocean = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager, ... } : {
+
+    nixosConfigurations."ocean" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.xen = import ./home.nix;
-        }
       ];
     };
+
+    homeConfigurations."xen" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [ 
+        ./home.nix 
+      ];
+    };
+
   };
+
 }

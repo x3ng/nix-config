@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } : {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
 
     nixosConfigurations."ocean" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";

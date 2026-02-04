@@ -28,6 +28,12 @@
     calibre
     thunderbird
     tigervnc
+    filezilla
+    vim
+    emacs
+    alacritty
+    kitty
+    wl-clipboard
   ];
 
   home.stateVersion = "25.11";

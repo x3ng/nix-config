@@ -8,11 +8,6 @@
     gcc
     python3
     gnumake
-    vim
-    emacs
-    alacritty
-    kitty
-    wl-clipboard
 
     home-manager
   ];

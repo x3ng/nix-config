@@ -10,22 +10,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-
-    nixosConfigurations."ocean" = nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+    let
       system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-      ];
+    in
+    {
+      nixosConfigurations."ocean" = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./configuration.nix
+        ];
+      };
+
+      homeConfigurations."xen" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [ 
+          ./home.nix 
+        ];
+      };
     };
-
-    homeConfigurations."xen" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      modules = [ 
-        ./home.nix 
-      ];
-    };
-
-  };
-
 }

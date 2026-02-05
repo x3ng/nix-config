@@ -6,34 +6,17 @@
   home.homeDirectory = "/home/xen";
 
   home.packages = with pkgs;[
-    tmux
-    tree
-    gnused
-    gnutar
-    gawk
 
-    lm_sensors
-    pciutils
-    usbutils
+    lm_sensors pciutils usbutils
 
-    git
-    fastfetch
-    proxychains-ng
-    wget
+    git fastfetch proxychains-ng wget tmux yazi tree gnused gnutar gawk vim 
 
-    neovim
-    yazi
-    mihomo
-    zed-editor
-    calibre
-    thunderbird
-    tigervnc
-    filezilla
-    vim
-    emacs
-    alacritty
-    kitty
-    wl-clipboard
+    wl-clipboard mihomo
+
+    emacs neovim zed-editor calibre thunderbird tigervnc filezilla
+
+    alacritty kitty
+    
   ];
 
   home.stateVersion = "25.11";

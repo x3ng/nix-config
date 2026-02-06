@@ -8,22 +8,10 @@ in
 {
   options.xremap = {
     enable = mkEnableOption "xremap service";
-
-    dotfilesDir = mkOption {
-      type = types.str;
-      default = ".dotfiles";
-      description = "dotfiles directory";
-    };
   };
 
   config = mkIf cfg.enable {
     home.packages = [ pkgs.xremap ];
-
-    xdg.configFile."xremap/config.yml" = {
-      enable = true;
-      source = "${cfg.dotfilesDir}/.config/xremap/config.yml";
-      force = false;
-    };
 
     systemd.user.services.xremap = {
       Unit.Description = "xremap service";

@@ -1,9 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  homeDir = builtins.getEnv "HOME";
-  dotfilesDir = "${homeDir}/.dotfiles";
-in
 {
   home.username = "xen";
   home.homeDirectory = "/home/xen";
@@ -28,7 +24,6 @@ in
 
   xremap = {
     enable = true;
-    dotfilesDir = dotfilesDir;
   };
 
   home.stateVersion = "25.11";

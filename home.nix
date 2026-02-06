@@ -16,7 +16,7 @@ in
 
     wl-clipboard mihomo
 
-    emacs neovim zed-editor calibre thunderbird tigervnc filezilla
+    emacs neovim zed-editor calibre thunderbird vlc tigervnc filezilla libreoffice
 
     alacritty kitty
     

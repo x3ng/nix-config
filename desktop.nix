@@ -13,6 +13,8 @@
     thunar
     mako
     waybar
+    swaylock-effects
+    swayidle
     grim
     brightnessctl
   ];

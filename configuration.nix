@@ -10,8 +10,8 @@
       ./modules/font
       ./modules/input
       ./modules/service/printing.nix
+      ./modules/hardware/firmware.nix
       ./modules/hardware/audio.nix
-      ./modules/hardware/display.nix
       ./modules/hardware/graphic.nix
       ./modules/desktop/common.nix
       ./modules/desktop/kde.nix

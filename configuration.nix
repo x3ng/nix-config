@@ -5,7 +5,9 @@
       ./hardware-configuration.nix
       ./system.nix
       ./packages.nix
-      ./desktop.nix
+      ./modules/desktop/common.nix
+      ./modules/desktop/kde.nix
+      ./modules/desktop/hyprland.nix
       ./modules/virtulisation/libvirt.nix
       ./modules/virtulisation/docker.nix
     ];

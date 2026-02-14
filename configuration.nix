@@ -3,7 +3,16 @@
 {
   imports = [
       ./hardware-configuration.nix
-      ./system.nix
+      ./modules/boot
+      ./modules/core
+      ./modules/user
+      ./modules/network
+      ./modules/font
+      ./modules/input
+      ./modules/service/printing.nix
+      ./modules/hardware/audio.nix
+      ./modules/hardware/display.nix
+      ./modules/hardware/graphic.nix
       ./modules/desktop/common.nix
       ./modules/desktop/kde.nix
       ./modules/desktop/hyprland.nix

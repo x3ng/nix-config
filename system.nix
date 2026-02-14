@@ -40,6 +40,7 @@
   services.smartdns = {
     enable = true;
     settings = {
+      bind = "127.0.0.1:53";
       server = [
         "119.29.29.29"
         "223.5.5.5"
@@ -94,7 +95,7 @@
   users.users.xen = {
     isNormalUser = true;
     description = "xen";
-    extraGroups = [ "networkmanager" "wheel" "docker" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
   };
 
   boot.kernelModules = [ "uinput" ];

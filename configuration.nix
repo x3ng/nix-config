@@ -6,6 +6,8 @@
       ./system.nix
       ./packages.nix
       ./desktop.nix
+      ./modules/virtulisation/libvirt.nix
+      ./modules/virtulisation/docker.nix
     ];
 
   # Allow unfree packages

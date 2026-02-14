@@ -4,12 +4,13 @@
   imports = [
       ./hardware-configuration.nix
       ./system.nix
-      ./packages.nix
       ./modules/desktop/common.nix
       ./modules/desktop/kde.nix
       ./modules/desktop/hyprland.nix
       ./modules/virtulisation/libvirt.nix
       ./modules/virtulisation/docker.nix
+      ./modules/packages/common.nix
+      ./modules/packages/flatpak.nix
     ];
 
   # Allow unfree packages

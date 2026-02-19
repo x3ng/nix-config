@@ -12,7 +12,7 @@
 
     wl-clipboard mihomo
 
-    emacs neovim zed-editor calibre thunderbird vlc tigervnc filezilla libreoffice gimp inkscape
+    emacs-pgtk neovim zed-editor calibre thunderbird vlc tigervnc filezilla libreoffice gimp inkscape
 
     alacritty kitty
     

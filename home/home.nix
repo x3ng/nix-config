@@ -6,9 +6,11 @@
 
   home.packages = with pkgs;[
 
+    gcc python3 racket
+
     lm_sensors pciutils usbutils
 
-    git fastfetch proxychains-ng wget tmux yazi tree gnused gnutar gawk vim 
+    gnumake git fastfetch proxychains-ng wget tmux yazi tree gnused gnutar gawk vim
 
     wl-clipboard mihomo
 

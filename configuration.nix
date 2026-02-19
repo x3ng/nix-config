@@ -16,6 +16,7 @@
       ./modules/desktop/common.nix
       ./modules/desktop/kde.nix
       ./modules/desktop/hyprland.nix
+      ./modules/desktop/niri.nix
       ./modules/virtulisation/libvirt.nix
       ./modules/virtulisation/docker.nix
       ./modules/packages/common.nix

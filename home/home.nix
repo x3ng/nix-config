@@ -12,11 +12,11 @@
 
     gnumake git fastfetch proxychains-ng wget tmux yazi tree gnused gnutar gawk vim
 
-    wl-clipboard mihomo
+    wl-clipboard mihomo clash-verge-rev
 
-    emacs-pgtk neovim zed-editor calibre thunderbird vlc tigervnc filezilla libreoffice gimp inkscape
+    emacs-pgtk neovim zed-editor calibre thunderbird vlc tigervnc filezilla libreoffice gimp inkscape aria2
 
-    alacritty kitty
+    alacritty kitty ghostty
     
   ];
 

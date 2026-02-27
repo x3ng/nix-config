@@ -1,35 +1,61 @@
 { config, pkgs, ... }:
 
 {
-
   fonts.packages = with pkgs; [
-    adwaita-fonts
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
-    unifont
     dejavu_fonts
+    unifont
 
-    jetbrains-mono
+    (nerd-fonts.jetbrains-mono)
     maple-mono.variable
     hack-font
     source-code-pro
     sarasa-gothic
 
-    nerd-fonts.symbols-only
+    lxgw-wenkai
+
     font-awesome
     material-design-icons
   ];
 
   fonts.fontconfig = {
     enable = true;
+
+    antialias = true;
+    subpixel = {
+      rgba = "rgb";
+      lcdfilter = "default";
+    };
+
+    hinting = {
+      enable = true;
+      style = "slight";
+    };
+
     defaultFonts = {
-      sansSerif = [ "Noto Sans CJK SC" "Noto Sans" "DejaVu Sans" ];
-      serif = [ "Noto Serif CJK SC" "Noto Serif" "DejaVu Serif" ];
-      monospace = [ "JetBrains Mono" "Maple Mono" "Sarasa Gothic SC" "Hack" ];
+      sansSerif = [
+        "Noto Sans CJK SC"
+        "LXGW WenKai"
+        "Noto Sans"
+        "DejaVu Sans"
+      ];
+      serif = [
+        "Noto Serif CJK SC"
+        "LXGW WenKai"
+        "Noto Serif"
+        "DejaVu Serif"
+      ];
+      monospace = [
+        "JetBrainsMono Nerd Font"
+        "Maple Mono VF"
+        "Sarasa Gothic SC"
+        "Hack"
+        "Unifont"
+      ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
-
 }

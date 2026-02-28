@@ -13,6 +13,12 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
+      pkgsWithUnfree = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
     in
     {
       nixosConfigurations."ocean" = nixpkgs.lib.nixosSystem {
@@ -22,7 +28,7 @@
       };
 
       homeConfigurations."xen" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = pkgsWithUnfree;
         modules = [ 
           ./home/home.nix 
         ];

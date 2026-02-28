@@ -13,6 +13,7 @@
       ./modules/hardware/firmware.nix
       ./modules/hardware/audio.nix
       ./modules/hardware/graphic.nix
+      ./modules/hardware/bluetooth.nix
       ./modules/desktop/common.nix
       ./modules/desktop/kde.nix
       ./modules/desktop/hyprland.nix

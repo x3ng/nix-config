@@ -5,19 +5,50 @@
   home.homeDirectory = "/home/xen";
 
   home.packages = with pkgs;[
+    gcc
+    clang-tools
+    python3
+    pyright
+    racket
 
-    gcc python3 racket
+    lm_sensors
+    pciutils
+    usbutils
+    git
+    gnumake
+    cmake
+    tmux
+    fastfetch
+    tree
+    gnused
+    gnutar
+    gawk
+    wl-clipboard
+    wget
+    yazi
+    proxychains-ng
+    mihomo
 
-    lm_sensors pciutils usbutils
+    vim
+    neovim
+    emacs-pgtk
 
-    gnumake git fastfetch proxychains-ng wget tmux yazi tree gnused gnutar gawk vim
+    alacritty
+    kitty
+    ghostty
 
-    wl-clipboard mihomo clash-verge-rev
-
-    emacs-pgtk neovim zed-editor calibre thunderbird vlc tigervnc filezilla libreoffice gimp inkscape aria2
-
-    alacritty kitty ghostty
-    
+    vlc
+    tigervnc
+    filezilla
+    gimp
+    aria2
+    nyxt
+    qutebrowser
+    libreoffice
+    vscode
+    thunderbird
+    inkscape
+    clash-verge-rev
   ];
 
   imports = [

@@ -28,6 +28,7 @@
     yazi
     proxychains-ng
     mihomo
+    texlive.combined.scheme-full
 
     vim
     neovim
@@ -47,7 +48,10 @@
     libreoffice
     vscode
     thunderbird
+    xournalpp
     inkscape
+    calibre
+    cherry-studio
     clash-verge-rev
   ];
 

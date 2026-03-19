@@ -4,12 +4,36 @@
   home.username = "xen";
   home.homeDirectory = "/home/xen";
 
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
+
+  programs.bash = {
+    enable = true;
+    bashrcExtra = ''
+      export EDITOR=nvim
+      export VISUAL=nvim
+    '';
+  };
+
   home.packages = with pkgs;[
     gcc
     clang-tools
     python3
+    uv
     pyright
     racket
+    ghc
+    cabal-install
+    ormolu
+    haskell-language-server
+
+    ripgrep
+    jq
+    yq-go
+    fzf
+    tmux
+    zellij
 
     lm_sensors
     pciutils
@@ -17,7 +41,6 @@
     git
     gnumake
     cmake
-    tmux
     fastfetch
     tree
     gnused
@@ -27,8 +50,10 @@
     wget
     yazi
     proxychains-ng
+    nmap
     mihomo
     texlive.combined.scheme-full
+    android-tools
 
     vim
     neovim
@@ -43,6 +68,7 @@
     filezilla
     gimp
     aria2
+    chromium
     nyxt
     qutebrowser
     libreoffice

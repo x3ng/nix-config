@@ -9,12 +9,14 @@
     dejavu_fonts
     unifont
 
-    (nerd-fonts.jetbrains-mono)
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.space-mono
     maple-mono.variable
     hack-font
     source-code-pro
     sarasa-gothic
 
+    wqy_microhei
     lxgw-wenkai
 
     font-awesome
@@ -38,20 +40,22 @@
     defaultFonts = {
       sansSerif = [
         "Noto Sans CJK SC"
-        "LXGW WenKai"
         "Noto Sans"
+        "WenQuanYi Micro Hei"
         "DejaVu Sans"
       ];
       serif = [
         "Noto Serif CJK SC"
-        "LXGW WenKai"
         "Noto Serif"
         "DejaVu Serif"
       ];
       monospace = [
         "JetBrainsMono Nerd Font"
         "Maple Mono VF"
-        "Sarasa Gothic SC"
+        "Sarasa Mono SC"
+        "Source Code Pro"
+        "DejaVu Sans Mono"
+        "Space Mono"
         "Hack"
         "Unifont"
       ];

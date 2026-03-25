@@ -16,6 +16,11 @@
     '';
   };
 
+  programs.starship = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
   home.packages = with pkgs;[
     gcc
     clang-tools
@@ -59,10 +64,13 @@
     neovim
     emacs-pgtk
 
+    starship
+
     alacritty
     kitty
     ghostty
 
+    ffmpeg
     vlc
     tigervnc
     filezilla
@@ -76,9 +84,12 @@
     thunderbird
     xournalpp
     inkscape
+    kdePackages.kdenlive
     calibre
     cherry-studio
     clash-verge-rev
+
+    claude-code
   ];
 
   imports = [

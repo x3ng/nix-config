@@ -23,7 +23,7 @@
     {
       nixosConfigurations."ocean" = nixpkgs.lib.nixosSystem {
         modules = [
-          ./configuration.nix
+          ./hosts/ocean
         ];
       };
 

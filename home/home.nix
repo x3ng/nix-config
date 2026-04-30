@@ -59,6 +59,8 @@
     mihomo
     texlive.combined.scheme-full
     android-tools
+    zip
+    unzip
 
     vim
     neovim
@@ -88,6 +90,10 @@
     calibre
     cherry-studio
     clash-verge-rev
+    drawio
+    pandoc
+    rustdesk-flutter
+    claude-code
 
     claude-code
   ];

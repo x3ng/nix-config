@@ -13,6 +13,7 @@
     thunar
     mako
     waybar
+    noctalia-shell
     swaylock-effects
     swayidle
     grim

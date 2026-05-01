@@ -26,6 +26,6 @@
 
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
-  users.users.xen.extraGroups = [ "libvirtd" "kvm" "qemu" ];
+  userGroups = [ "libvirtd" "kvm" "qemu" ];
 
 }

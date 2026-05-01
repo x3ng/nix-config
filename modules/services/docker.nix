@@ -4,6 +4,6 @@
 
   virtualisation.docker.enable = true;
 
-  users.users.xen.extraGroups = [ "docker" ];
+  userGroups = [ "docker" ];
 
 }

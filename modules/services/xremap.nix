@@ -10,6 +10,6 @@
     SUBSYSTEM=="hidraw", MODE="0660", GROUP="input"
   '';
 
-  users.users.xen.extraGroups = [ "input" ];
+  userGroups = [ "input" ];
 
 }

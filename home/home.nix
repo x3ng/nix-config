@@ -23,12 +23,8 @@
 
   imports = [
     ./packages.nix
-    ./modules/xremap/xremap.nix
+    ./modules/xremap.nix
   ];
-
-  xremap = {
-    enable = true;
-  };
 
   home.stateVersion = "25.11";
 

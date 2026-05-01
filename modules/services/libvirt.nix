@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 {
+
   virtualisation.libvirtd = {
     enable = true;
   };
@@ -26,6 +27,5 @@
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
   users.users.xen.extraGroups = [ "libvirtd" "kvm" "qemu" ];
-  
-}
 
+}

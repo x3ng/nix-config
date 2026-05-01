@@ -75,7 +75,6 @@
     unzip
     proxychains-ng
     nmap
-    mihomo
     aria2
     android-tools
     tigervnc

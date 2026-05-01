@@ -1,5 +1,4 @@
 { config, pkgs, lib, ... }:
-
 {
   imports = [
     ./hardware-configuration.nix
@@ -7,9 +6,13 @@
     ../../modules/core
     ../../modules/user
     ../../modules/network
+    ../../modules/network/mihomo.nix
     ../../modules/font
-    ../../modules/input
-    ../../modules/service/printing.nix
+    ../../modules/services/fcitx5.nix
+    ../../modules/services/xremap.nix
+    ../../modules/services/cups.nix
+    ../../modules/services/docker.nix
+    ../../modules/services/libvirt.nix
     ../../modules/hardware/firmware.nix
     ../../modules/hardware/audio.nix
     ../../modules/hardware/graphic.nix
@@ -17,9 +20,7 @@
     ../../modules/desktop/common.nix
     ../../modules/desktop/kde.nix
     ../../modules/desktop/hyprland.nix
-    ../../modules/virtulisation/libvirt.nix
-    ../../modules/virtulisation/docker.nix
-    ../../modules/packages/common.nix
+    ../../modules/packages/system.nix
     ../../modules/packages/flatpak.nix
   ];
 

@@ -21,7 +21,7 @@
     ../../modules/desktop/kde.nix
     ../../modules/desktop/hyprland.nix
     ../../modules/packages/system.nix
-    ../../modules/packages/flatpak.nix
+    ../../modules/services/flatpak.nix
   ];
 
   programs.nix-ld.enable = true;

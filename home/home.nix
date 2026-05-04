@@ -4,6 +4,8 @@
   home.username = "xen";
   home.homeDirectory = "/home/xen";
 
+  programs.firefox.enable = true;
+
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
@@ -26,6 +28,6 @@
     ./modules/xremap.nix
   ];
 
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
 }

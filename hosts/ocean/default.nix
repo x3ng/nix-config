@@ -19,9 +19,9 @@
     ../../modules/hardware/audio.nix
     ../../modules/hardware/graphic.nix
     ../../modules/hardware/bluetooth.nix
-    ../../modules/desktop/sddm.nix
-    ../../modules/desktop/kde.nix
-    ../../modules/desktop/hyprland.nix
+    ../../modules/software/sddm.nix
+    ../../modules/software/kde.nix
+    ../../modules/software/hyprland.nix
   ];
 
 }

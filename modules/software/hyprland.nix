@@ -9,10 +9,12 @@
   };
 
   environment.systemPackages = with pkgs; [
+    hyprpolkitagent
     rofi
     thunar
     mako
     waybar
+    eww
     noctalia-shell
     swaylock-effects
     swayidle

@@ -67,6 +67,9 @@
     clash-verge-rev
     claude-code
 
+    # js
+    nodejs
+
     # system
     lm_sensors
     pciutils

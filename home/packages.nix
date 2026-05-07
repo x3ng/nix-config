@@ -32,6 +32,8 @@
     wl-clipboard
     wget
     yazi
+    chafa
+    viu
 
     # editor
     vim
@@ -63,6 +65,7 @@
     xournalpp
     drawio
     pandoc
+    crow-translate
     cherry-studio
     clash-verge-rev
     claude-code

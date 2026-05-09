@@ -87,5 +87,6 @@
     filezilla
     rustdesk-flutter
     texlive.combined.scheme-full
+    typst
   ];
 }

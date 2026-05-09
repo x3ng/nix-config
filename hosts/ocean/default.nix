@@ -6,6 +6,7 @@
     ../../modules/core
     ../../modules/nix
     ../../modules/user
+    ../../modules/user/xen.nix
     ../../modules/network
     ../../modules/network/mihomo.nix
     ../../modules/font

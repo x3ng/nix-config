@@ -8,6 +8,7 @@
     noto-fonts-color-emoji
     dejavu_fonts
     unifont
+    corefonts
 
     nerd-fonts.jetbrains-mono
     nerd-fonts.space-mono

@@ -34,6 +34,7 @@
     yazi
     chafa
     viu
+    glow
 
     # editor
     vim

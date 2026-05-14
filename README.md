@@ -1,40 +1,58 @@
 # nix-config
 
-NixOS flake configuration for a single host with home-manager.
+Flake-based NixOS + home-manager configuration (x86_64-linux).
+
+Currently one host (`ocean`) and one user (`xen`).
 
 ## Usage
 
 ```bash
-# Apply system config
-sudo nixos-rebuild switch --flake .#ocean
-
-# Apply home-manager config
-home-manager switch --flake .#xen
-
-# Build without applying
-nixos-rebuild build --flake .#ocean
-
-# Update flake inputs
+sudo nixos-rebuild switch --flake path:.#<host>
+home-manager switch --flake path:.#<user>
 nix flake update
 ```
 
-## Module Structure
+Always use `path:.` prefix — avoids needing `git add` before build.
+
+## Structure
+
+```
+flake.nix                  inputs, outputs (nixosConfigurations + homeConfigurations)
+hosts/<host>/default.nix   host entry point — pure import list, no inline config
+home/home.nix              home-manager entry point — shell, starship, firefox, imports
+home/packages.nix          user packages
+```
+
+### System modules (`modules/`)
+
+Each directory = one concern. Directories with `default.nix` are imported wholesale; individual `.nix` files imported by path in `hosts/<host>/default.nix`.
 
 | Path | Purpose |
 |---|---|
 | `boot/` | systemd-boot, latest kernel |
-| `core/` | Timezone, locale, firmware |
-| `nix/` | Nix settings, nix-ld, home-manager CLI |
-| `user/` | User definition with centralized group management |
-| `font/` | System fonts and fontconfig |
-| `hardware/` | Graphics, audio, Bluetooth, firmware/thermald |
-| `network/` | NetworkManager, proxy services (dae, mihomo) |
+| `core/` | Timezone, locale, redistributable firmware |
+| `nix/` | Flakes, unfree, nix-ld, home-manager CLI, stateVersion |
+| `user/` | User with `userGroups` option for centralized group management |
+| `font/` | System fonts (Noto, Nerd Fonts, Chinese, emoji), fontconfig |
+| `hardware/` | Intel graphics, PipeWire audio, Bluetooth, firmware/thermald/ppd/fstrim |
+| `network/` | NetworkManager, dae/mihomo proxy (systemd + tun mode) |
 | `software/` | SDDM, KDE Plasma 6, Hyprland, Niri, CUPS, Flatpak, fcitx5, xremap, Docker, libvirt |
 
-## Home Manager
+### Home-manager (`home/`)
 
 | Path | Purpose |
 |---|---|
-| `home.nix` | Shell, starship, firefox, imports |
-| `packages.nix` | User packages |
-| `modules/xremap.nix` | xremap user service |
+| `home.nix` | Entry point: shell, starship, firefox, imports |
+| `packages.nix` | User packages by category |
+| `modules/` | User-scoped modules (systemd services, app config) |
+
+Available hosts/users are listed in `flake.nix` outputs.
+
+## Conventions
+
+- System config → `modules/`, user config → `home/`.
+- `hosts/<host>/default.nix` is a pure import list — no inline config.
+- `software/` is the catch-all for non-universal software-level system config.
+- `userGroups` option in `modules/user/` lets software modules declare required groups (`userGroups = [ "docker" ]`) instead of hardcoding group lists.
+- KDE and Hyprland coexist; share SDDM.
+- `allowUnfree = true` set in both `flake.nix` (home-manager) and `modules/nix/` (NixOS).

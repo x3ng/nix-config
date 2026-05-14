@@ -26,6 +26,7 @@
   imports = [
     ./packages.nix
     ./modules/xremap.nix
+    ./modules/trash.nix
   ];
 
   home.stateVersion = "26.05";

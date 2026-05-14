@@ -19,6 +19,11 @@
     jq
     yq-go
     fzf
+    fd
+    bat
+    eza
+    zoxide
+    delta
     tmux
     zellij
     git

@@ -28,9 +28,8 @@ nix flake update
 | `user/` | User definition with centralized group management |
 | `font/` | System fonts and fontconfig |
 | `hardware/` | Graphics, audio, Bluetooth, firmware/thermald |
-| `network/` | NetworkManager, proxy services (dae/mihomo) |
-| `desktop/` | SDDM, KDE Plasma, Hyprland, Niri |
-| `software/` | Software-level system configs (cups, flatpak, fcitx5, xremap, docker, libvirt) |
+| `network/` | NetworkManager, proxy services (dae, mihomo) |
+| `software/` | SDDM, KDE Plasma 6, Hyprland, Niri, CUPS, Flatpak, fcitx5, xremap, Docker, libvirt |
 
 ## Home Manager
 

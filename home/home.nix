@@ -23,6 +23,11 @@
     enableBashIntegration = true;
   };
 
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
   imports = [
     ./packages.nix
     ./modules/xremap.nix

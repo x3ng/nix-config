@@ -30,7 +30,6 @@
 
   imports = [
     ./packages.nix
-    ./modules/xremap.nix
     ./modules/trash.nix
   ];
 

@@ -38,7 +38,6 @@
     wget
     yazi
     chafa
-    viu
     glow
 
     # editor
@@ -68,7 +67,7 @@
     calibre
     vscode
     thunderbird
-    xournalpp
+    rnote
     drawio
     pandoc
     crow-translate

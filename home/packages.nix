@@ -15,6 +15,7 @@
     haskell-language-server
 
     # cli
+    tlrc
     ripgrep
     jq
     yq-go

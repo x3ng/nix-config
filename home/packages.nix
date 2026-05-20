@@ -13,6 +13,8 @@
     cabal-install
     ormolu
     haskell-language-server
+    lua-language-server
+    marksman
 
     # cli
     tlrc

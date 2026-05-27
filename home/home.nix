@@ -1,38 +1,25 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   home.username = "xen";
   home.homeDirectory = "/home/xen";
-
-  programs.firefox.enable = true;
+  home.stateVersion = "26.05";
 
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
 
-  programs.bash = {
-    enable = true;
-    bashrcExtra = ''
-      export EDITOR=nvim
-      export VISUAL=nvim
-    '';
-  };
-
-  programs.starship = {
-    enable = true;
-    enableBashIntegration = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableBashIntegration = true;
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   imports = [
     ./packages.nix
+    ./modules/bash.nix
+    ./modules/fzf.nix
+    ./modules/starship.nix
+    ./modules/firefox.nix
     ./modules/trash.nix
   ];
-
-  home.stateVersion = "26.05";
-
 }

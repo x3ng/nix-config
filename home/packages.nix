@@ -21,7 +21,7 @@
     ripgrep
     jq
     yq-go
-    fzf
+
     fd
     bat
     eza
@@ -64,6 +64,7 @@
     gimp
     kdePackages.kdenlive
     inkscape
+    obs-studio
 
     # utils
     libreoffice

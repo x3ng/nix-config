@@ -72,7 +72,6 @@
     vscode
     thunderbird
     rnote
-    drawio
     pandoc
     crow-translate
     cherry-studio

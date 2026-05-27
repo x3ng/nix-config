@@ -10,15 +10,17 @@
 
   environment.systemPackages = with pkgs; [
     hyprpolkitagent
+    hyprlock
+    hypridle
+    hyprshutdown
     rofi
     thunar
     mako
     waybar
     eww
     noctalia-shell
-    swaylock-effects
-    swayidle
     grim
+    slurp
     brightnessctl
   ];
 

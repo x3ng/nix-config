@@ -8,6 +8,8 @@
     xwayland.enable = true;
   };
 
+  services.blueman.enable = true;
+
   environment.systemPackages = with pkgs; [
     hyprpolkitagent
     hyprlock
@@ -22,6 +24,11 @@
     grim
     slurp
     brightnessctl
+    playerctl
+    networkmanagerapplet
+    pavucontrol
+    cliphist
+    xdg-desktop-portal-hyprland
   ];
 
   security.wrappers.brightnessctl = {

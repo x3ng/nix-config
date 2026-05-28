@@ -75,7 +75,7 @@
     pandoc
     crow-translate
     cherry-studio
-    clash-verge-rev
+    flclash
     claude-code
 
     # js

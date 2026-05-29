@@ -42,9 +42,9 @@ Each directory = one concern. Directories with `default.nix` are imported wholes
 
 | Path | Purpose |
 |---|---|
-| `home.nix` | Entry point: shell, starship, firefox, imports |
-| `packages.nix` | User packages by category |
-| `modules/` | User-scoped modules (systemd services, app config) |
+| `home.nix` | Entry point — session variables, path, imports `packages.nix` and `modules/` |
+| `packages.nix` | Direct install packages by category (dev, cli, editor, terminal, etc.) |
+| `modules/` | Configurable app/feature modules imported by `home.nix` (bash, firefox, fzf, starship, trash) |
 
 Available hosts/users are listed in `flake.nix` outputs.
 

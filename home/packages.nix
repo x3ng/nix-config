@@ -67,7 +67,7 @@
     obs-studio
 
     # utils
-    libreoffice
+    libreoffice-qt
     calibre
     vscode
     thunderbird

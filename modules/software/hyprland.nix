@@ -19,8 +19,6 @@
     thunar
     mako
     waybar
-    eww
-    noctalia-shell
     grim
     slurp
     brightnessctl

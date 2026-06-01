@@ -21,8 +21,7 @@
     ../../modules/hardware/graphic.nix
     ../../modules/hardware/bluetooth.nix
     ../../modules/software/sddm.nix
-    ../../modules/software/kde.nix
-    ../../modules/software/hyprland.nix
+    ../../modules/software/plasma.nix
   ];
 
 }

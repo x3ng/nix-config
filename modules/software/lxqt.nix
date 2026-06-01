@@ -3,6 +3,9 @@
 {
   services.xserver.desktopManager.lxqt.enable = true;
 
+  # LXQt module only registers X11 session, manually add Wayland session
+  services.displayManager.sessionPackages = [ pkgs.lxqt.lxqt-wayland-session ];
+
   environment.systemPackages = with pkgs; [
     lxqt.lxqt-wayland-session
     lxqt.lxqt-session

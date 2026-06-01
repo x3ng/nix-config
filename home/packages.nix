@@ -50,13 +50,11 @@
 
     # terminal
     alacritty
-    kitty
     ghostty
+    foot
 
     # browser
     chromium
-    nyxt
-    qutebrowser
 
     # media
     ffmpeg

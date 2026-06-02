@@ -22,6 +22,7 @@
     ../../modules/hardware/bluetooth.nix
     ../../modules/software/sddm.nix
     ../../modules/software/plasma.nix
+    ../../modules/software/cosmic.nix
   ];
 
 }

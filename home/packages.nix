@@ -51,7 +51,6 @@
     # terminal
     alacritty
     ghostty
-    foot
 
     # browser
     chromium

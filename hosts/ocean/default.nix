@@ -20,7 +20,6 @@
     ../../modules/hardware/audio.nix
     ../../modules/hardware/graphic.nix
     ../../modules/hardware/bluetooth.nix
-    ../../modules/software/sddm.nix
     ../../modules/software/plasma.nix
   ];
 

@@ -53,9 +53,4 @@ in
       ];
     };
   };
-
-  # system/mixed TUN stacks use kernel TCP path, need rp_filter off
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="net", ENV{ID_NET_DRIVER}=="tun", RUN+="${pkgs.procps}/bin/sysctl -w net.ipv4.conf.$env{INTERFACE}.rp_filter=0"
-  '';
 }

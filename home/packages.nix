@@ -64,6 +64,7 @@
     obs-studio
 
     # utils
+    rofi
     libreoffice-qt
     calibre
     vscode
@@ -74,6 +75,10 @@
     cherry-studio
     flclash
     claude-code
+    codex
+    aichat
+    aider-chat
+    fabric-ai
 
     # js
     nodejs

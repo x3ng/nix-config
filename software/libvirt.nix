@@ -12,12 +12,8 @@
   '';
 
   environment.systemPackages = with pkgs; [
-    libvirt
-    qemu
-    virt-manager
+    # virt-manager, libvirt, qemu are pulled in by the options above
     virt-viewer
-    dnsmasq
-    bridge-utils
     libguestfs
   ];
 

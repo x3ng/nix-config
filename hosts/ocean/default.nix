@@ -2,25 +2,27 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/boot
-    ../../modules/core
-    ../../modules/nix
-    ../../modules/user
-    ../../modules/user/xen.nix
-    ../../modules/network
-    ../../modules/network/mihomo.nix
-    ../../modules/font
-    ../../modules/software/fcitx5.nix
-    ../../modules/software/xremap.nix
-    ../../modules/software/cups.nix
-    ../../modules/software/docker.nix
-    ../../modules/software/libvirt.nix
-    ../../modules/software/flatpak.nix
-    ../../modules/hardware/firmware.nix
-    ../../modules/hardware/audio.nix
-    ../../modules/hardware/graphic.nix
-    ../../modules/hardware/bluetooth.nix
-    ../../modules/software/plasma.nix
+
+    ../../software/boot.nix
+    ../../software/core.nix
+    ../../software/nix.nix
+    ../../software/user.nix
+    ../../software/xen.nix
+    ../../software/network.nix
+    ../../software/mihomo.nix
+    ../../software/font.nix
+    ../../software/fcitx5.nix
+    ../../software/xremap.nix
+    ../../software/cups.nix
+    ../../software/docker.nix
+    ../../software/libvirt.nix
+    ../../software/flatpak.nix
+    ../../software/plasma.nix
+
+    ../../hardware/firmware.nix
+    ../../hardware/audio.nix
+    ../../hardware/graphic.nix
+    ../../hardware/bluetooth.nix
   ];
 
 }

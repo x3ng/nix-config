@@ -23,20 +23,43 @@ home/home.nix              home-manager entry point — shell, starship, firefox
 home/packages.nix          user packages
 ```
 
-### System modules (`modules/`)
+### Hardware (`hardware/`)
 
-Each directory = one concern. Directories with `default.nix` are imported wholesale; individual `.nix` files imported by path in `hosts/<host>/default.nix`.
+Physical device configuration — firmware, audio, bluetooth, CPU, GPU, power management.
 
 | Path | Purpose |
 |---|---|
-| `boot/` | systemd-boot, latest kernel |
-| `core/` | Timezone, locale, redistributable firmware |
-| `nix/` | Flakes, unfree, nix-ld, home-manager CLI, stateVersion |
-| `user/` | User with `userGroups` option for centralized group management |
-| `font/` | System fonts (Noto, Nerd Fonts, Chinese, emoji), fontconfig |
-| `hardware/` | Intel graphics, PipeWire audio, Bluetooth, firmware/thermald/ppd/fstrim |
-| `network/` | NetworkManager, dae/mihomo proxy (systemd + tun mode) |
-| `software/` | SDDM, KDE Plasma 6, Hyprland, Niri, CUPS, Flatpak, fcitx5, xremap, Docker, libvirt |
+| `firmware.nix` | linux-firmware, fwupd, redistributable firmware |
+| `ssd.nix` | SSD TRIM (fstrim) |
+| `audio.nix` | PipeWire |
+| `bluetooth.nix` | Bluetooth (experimental, fast connectable) |
+| `laptop.nix` | power-profiles-daemon, TrackPoint |
+| `cpu/intel/kaby-lake.nix` | Microcode, thermald, throttled, kvm-intel |
+| `gpu/intel/kaby-lake.nix` | i915 params, intel-media-driver, VA-API |
+
+### Software (`software/`)
+
+System-level software configuration — desktop, services, networking, tools.
+
+| Path | Purpose |
+|---|---|
+| `boot.nix` | systemd-boot, latest kernel |
+| `local.nix` | Timezone, locale |
+| `nix.nix` | Flakes, unfree, nix-ld, home-manager CLI, stateVersion |
+| `user.nix` | `userGroups` option for centralized group management |
+| `xen.nix` | User account |
+| `network.nix` | Hostname, NetworkManager |
+| `mihomo.nix` | Proxy (mihomo TUN) + systemd-resolved DNS |
+| `font.nix` | System fonts (Noto, Nerd Fonts, Chinese, emoji), fontconfig |
+| `fcitx5.nix` | Chinese input method |
+| `xremap.nix` | Key remapping (uinput) |
+| `cups.nix` | Printing |
+| `docker.nix` | Docker |
+| `libvirt.nix` | KVM/QEMU virtual machines |
+| `flatpak.nix` | Flatpak + Flathub |
+| `plasma.nix` | KDE Plasma 6 + X11 |
+
+Backup modules (not imported, kept for experimentation): `cosmic.nix`, `lxqt.nix`, `hyprland.nix`, `niri.nix`, `sddm.nix`.
 
 ### Home-manager (`home/`)
 
@@ -50,9 +73,7 @@ Available hosts/users are listed in `flake.nix` outputs.
 
 ## Conventions
 
-- System config → `modules/`, user config → `home/`.
+- Hardware config → `hardware/`, software config → `software/`, user config → `home/`.
 - `hosts/<host>/default.nix` is a pure import list — no inline config.
-- `software/` is the catch-all for non-universal software-level system config.
-- `userGroups` option in `modules/user/` lets software modules declare required groups (`userGroups = [ "docker" ]`) instead of hardcoding group lists.
-- KDE and Hyprland coexist; share SDDM.
-- `allowUnfree = true` set in both `flake.nix` (home-manager) and `modules/nix/` (NixOS).
+- `userGroups` option in `software/user.nix` lets software modules declare required groups (`userGroups = [ "docker" ]`) instead of hardcoding group lists.
+- `allowUnfree = true` set in both `flake.nix` (home-manager) and `software/nix.nix` (NixOS).

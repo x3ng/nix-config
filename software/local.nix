@@ -8,6 +8,4 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  hardware.enableRedistributableFirmware = true;
-
 }

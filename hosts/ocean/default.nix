@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
 
     ../../software/boot.nix
-    ../../software/core.nix
+    ../../software/local.nix
     ../../software/nix.nix
     ../../software/user.nix
     ../../software/xen.nix
@@ -20,6 +20,7 @@
     ../../software/plasma.nix
 
     ../../hardware/firmware.nix
+    ../../hardware/ssd.nix
     ../../hardware/audio.nix
     ../../hardware/bluetooth.nix
     ../../hardware/laptop.nix

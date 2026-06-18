@@ -76,6 +76,7 @@
     flclash
     claude-code
     codex
+    opencode
     aichat
     aider-chat
     fabric-ai

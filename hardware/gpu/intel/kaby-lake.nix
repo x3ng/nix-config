@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [ intel-media-driver ];
@@ -20,11 +19,4 @@
   };
 
   boot.kernelParams = [ "i915.enable_guc=3" ];
-
-  services.xserver.enable = true;
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
 }

@@ -21,8 +21,10 @@
 
     ../../hardware/firmware.nix
     ../../hardware/audio.nix
-    ../../hardware/graphic.nix
     ../../hardware/bluetooth.nix
+    ../../hardware/laptop.nix
+    ../../hardware/cpu/intel/kaby-lake.nix
+    ../../hardware/gpu/intel/kaby-lake.nix
   ];
 
 }

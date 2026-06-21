@@ -6,6 +6,12 @@
     gcc
     clang-tools
     python3
+    rustc
+    cargo
+    clippy
+    rustfmt
+    rust-analyzer
+    cargo-watch
     uv
     pyright
     racket
@@ -15,6 +21,7 @@
     haskell-language-server
     lua-language-server
     marksman
+    verible
 
     # cli
     tlrc
@@ -29,6 +36,7 @@
     delta
     tmux
     zellij
+    btop
     git
     gnumake
     cmake

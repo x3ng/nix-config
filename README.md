@@ -18,10 +18,24 @@ Always use `path:.` prefix — avoids needing `git add` before build.
 
 ```
 flake.nix                  inputs, outputs (nixosConfigurations + homeConfigurations)
-hosts/<host>/default.nix   host entry point — pure import list, no inline config
+hosts/<host>/default.nix   host assembly — imports shared modules plus small host-local settings
+base/                      baseline NixOS configuration shared by normal hosts
+software/                  optional NixOS modules layered on top of base
 home/home.nix              home-manager entry point — shell, starship, firefox, imports
 home/packages.nix          user packages
 ```
+
+### Base (`base/`)
+
+Baseline NixOS configuration — boot, locale, Nix behavior, and user declarations.
+
+| Path | Purpose |
+|---|---|
+| `boot.nix` | systemd-boot, latest kernel |
+| `local.nix` | Timezone, locale |
+| `nix.nix` | Flakes, unfree, nix-ld, home-manager CLI, stateVersion |
+| `users/default.nix` | `userGroups` option for centralized group management |
+| `users/xen.nix` | `xen` user account |
 
 ### Hardware (`hardware/`)
 
@@ -39,16 +53,11 @@ Physical device configuration — firmware, audio, bluetooth, CPU, GPU, power ma
 
 ### Software (`software/`)
 
-System-level software configuration — desktop, services, networking, tools.
+Optional system-level software configuration — desktop, services, networking backend, tools.
 
 | Path | Purpose |
 |---|---|
-| `boot.nix` | systemd-boot, latest kernel |
-| `local.nix` | Timezone, locale |
-| `nix.nix` | Flakes, unfree, nix-ld, home-manager CLI, stateVersion |
-| `user.nix` | `userGroups` option for centralized group management |
-| `xen.nix` | User account |
-| `network.nix` | Hostname, NetworkManager |
+| `networkmanager.nix` | NetworkManager backend |
 | `mihomo.nix` | Proxy (mihomo TUN) + systemd-resolved DNS |
 | `font.nix` | System fonts (Noto, Nerd Fonts, Chinese, emoji), fontconfig |
 | `fcitx5.nix` | Chinese input method |
@@ -73,7 +82,8 @@ Available hosts/users are listed in `flake.nix` outputs.
 
 ## Conventions
 
-- Hardware config → `hardware/`, software config → `software/`, user config → `home/`.
-- `hosts/<host>/default.nix` is a pure import list — no inline config.
-- `userGroups` option in `software/user.nix` lets software modules declare required groups (`userGroups = [ "docker" ]`) instead of hardcoding group lists.
-- `allowUnfree = true` set in both `flake.nix` (home-manager) and `software/nix.nix` (NixOS).
+- Baseline NixOS config → `base/`, optional NixOS modules → `software/`, hardware config → `hardware/`, user environment → `home/`.
+- `hosts/<host>/default.nix` chooses modules for that host and may contain small host-local settings such as hostname.
+- Reusable logic belongs in `base/`, `hardware/`, `software/`, or `home/`; host-local exceptions live under `hosts/<host>/`.
+- `userGroups` option in `base/users/default.nix` lets software modules declare required groups (`userGroups = [ "docker" ]`) instead of hardcoding group lists.
+- `allowUnfree = true` set in both `flake.nix` (home-manager) and `base/nix.nix` (NixOS).

@@ -4,6 +4,13 @@ let
   resolvectl = "${pkgs.systemd}/bin/resolvectl";
 in
 {
+  assertions = [
+    {
+      assertion = config.networking.networkmanager.enable;
+      message = "software/mihomo.nix requires NetworkManager. Also import software/networkmanager.nix.";
+    }
+  ];
+
   # =========================================================================
   # DNS 基础设施 — mihomo TUN 模式需要 systemd-resolved 做 DNS 缓冲层
   # 没有 resolved 时，mihomo DNS 故障会导致 100% 20s 超时（无 fallback）

@@ -3,12 +3,12 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../software/boot.nix
-    ../../software/local.nix
-    ../../software/nix.nix
-    ../../software/user.nix
-    ../../software/xen.nix
-    ../../software/network.nix
+    ../../base/boot.nix
+    ../../base/local.nix
+    ../../base/nix.nix
+    ../../base/users
+    ../../base/users/xen.nix
+    ../../software/networkmanager.nix
     ../../software/mihomo.nix
     ../../software/font.nix
     ../../software/fcitx5.nix
@@ -28,4 +28,5 @@
     ../../hardware/gpu/intel/kaby-lake.nix
   ];
 
+  networking.hostName = "ocean";
 }

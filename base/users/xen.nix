@@ -8,7 +8,7 @@ in
   users.users.${userName} = {
     isNormalUser = true;
     description = userName;
-    extraGroups = [ "networkmanager" "wheel" ] ++ config.userGroups;
+    extraGroups = [ "wheel" ] ++ config.userGroups;
   };
 
   nix.settings.trusted-users = [ userName ];

@@ -53,8 +53,10 @@
 
     # editor
     vim
+    helix
     neovim
-    emacs-pgtk
+    emacs
+    zed-editor
 
     # terminal
     alacritty
@@ -73,6 +75,9 @@
 
     # utils
     rofi
+    flameshot
+    zathura
+    thunar
     libreoffice-qt
     calibre
     vscode

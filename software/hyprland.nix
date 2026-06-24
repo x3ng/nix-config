@@ -12,11 +12,12 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --asterisks --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot'";
         user = "greeter";
       };
     };
   };
+
 
   # Screen sharing + file picker portals
   xdg.portal = {
@@ -29,6 +30,9 @@
       default = [ "hyprland" "gtk" ];
     };
   };
+
+  # xdg-open should use portal system on Wayland
+  xdg.portal.xdgOpenUsePortal = true;
 
   # Lock screen PAM
   security.pam.services.hyprlock = {};
@@ -55,8 +59,10 @@
     # Shell / bar
     quickshell
 
-    # Launcher + notifications
-    fuzzel
+    # Launcher
+    rofi
+
+    # Notifications
     mako
 
     # Screenshot + annotation
@@ -64,26 +70,26 @@
     slurp
     satty
 
-    # Clipboard
-    wl-clipboard
-    clipse
+    # Clipboard history
+    cliphist
+
+    # Wallpaper
+    hyprpaper
 
     # Hardware controls
     brightnessctl
     playerctl
     pavucontrol
 
+    # Auto-mount USB
+    udiskie
+
     # System tray apps
     networkmanagerapplet
 
-    # File manager
-    thunar
-
-    # Cursor theme
-    bibata-cursors
-
-    # Icon theme (needed for tray icons)
-    adwaita-icon-theme
+    # Display config
+    wlr-randr
+    nwg-displays
   ];
 
   security.wrappers.brightnessctl = {

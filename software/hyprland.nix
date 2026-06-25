@@ -58,6 +58,7 @@
 
     # Shell / bar
     quickshell
+    papirus-icon-theme
 
     # Launcher
     rofi

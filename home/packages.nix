@@ -32,7 +32,7 @@
     fd
     bat
     eza
-    zoxide
+
     delta
     tmux
     zellij
@@ -86,7 +86,7 @@
     pandoc
     crow-translate
     cherry-studio
-    flclash
+    clash-verge-rev
     claude-code
     codex
     opencode

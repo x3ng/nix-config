@@ -17,8 +17,6 @@
   imports = [
     ./packages.nix
     ./modules/bash.nix
-    ./modules/fzf.nix
-    ./modules/starship.nix
     ./modules/firefox.nix
     ./modules/trash.nix
   ];

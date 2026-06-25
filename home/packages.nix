@@ -55,7 +55,7 @@
     vim
     helix
     neovim
-    emacs
+    emacs-pgtk
     zed-editor
 
     # terminal

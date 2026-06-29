@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     # dev
+    ctags
     gcc
     clang-tools
     python3
@@ -64,6 +65,7 @@
 
     # browser
     chromium
+    qutebrowser
 
     # media
     ffmpeg

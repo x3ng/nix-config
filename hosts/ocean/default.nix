@@ -17,6 +17,7 @@
     ../../software/docker.nix
     ../../software/libvirt.nix
     ../../software/flatpak.nix
+    ../../software/kmscon.nix
     ../../software/plasma.nix
 
     ../../hardware/firmware.nix

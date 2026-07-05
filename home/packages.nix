@@ -87,11 +87,11 @@
     rnote
     pandoc
     crow-translate
-    cherry-studio
     clash-verge-rev
+    pi-coding-agent
+    opencode
     claude-code
     codex
-    opencode
     aichat
     aider-chat
     fabric-ai

@@ -112,7 +112,7 @@
     tigervnc
     filezilla
     rustdesk-flutter
-    texlive.combined.scheme-full
+    texliveFull
     typst
   ];
 }

@@ -9,6 +9,7 @@
     ../../base/users
     ../../base/users/xen.nix
     ../../software/networkmanager.nix
+    ../../software/tailscale.nix
     ../../software/mihomo.nix
     ../../software/font.nix
     ../../software/fcitx5.nix

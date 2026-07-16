@@ -58,6 +58,7 @@ Optional system-level software configuration — desktop, services, networking b
 | Path | Purpose |
 |---|---|
 | `networkmanager.nix` | NetworkManager backend |
+| `tailscale.nix` | Tailscale mesh networking |
 | `mihomo.nix` | Proxy (mihomo TUN) + systemd-resolved DNS |
 | `font.nix` | System fonts (Noto, Nerd Fonts, Chinese, emoji), fontconfig |
 | `fcitx5.nix` | Chinese input method |

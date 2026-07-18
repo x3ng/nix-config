@@ -22,6 +22,7 @@
     in
     {
       nixosConfigurations."ocean" = nixpkgs.lib.nixosSystem {
+        inherit system;
         modules = [
           ./hosts/ocean
         ];

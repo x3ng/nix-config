@@ -51,6 +51,7 @@
     yazi
     chafa
     glow
+    subversion
 
     # editor
     vim

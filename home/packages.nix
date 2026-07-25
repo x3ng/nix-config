@@ -25,7 +25,6 @@
     verible
 
     # cli
-    tlrc
     ripgrep
     jq
     yq-go

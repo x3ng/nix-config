@@ -5,7 +5,6 @@
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
-      package = pkgs.qemu_kvm;
       swtpm.enable = true;
       vhostUserPackages = [ pkgs.virtiofsd ];
     };
@@ -19,12 +18,8 @@
   '';
 
   environment.systemPackages = with pkgs; [
-    # virt-manager, libvirt, qemu are pulled in by the options above
     virt-viewer
-    libguestfs
-    guestfs-tools
     virt-top
-    virtio-win
     win-spice
     freerdp
   ];

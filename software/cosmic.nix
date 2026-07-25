@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+
+  services.displayManager.cosmic-greeter.enable = true;
+
   services.desktopManager.cosmic.enable = true;
 
   # Optional: better performance with system76 scheduler

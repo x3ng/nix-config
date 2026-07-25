@@ -19,7 +19,7 @@
     ../../software/libvirt.nix
     ../../software/flatpak.nix
     ../../software/kmscon.nix
-    ../../software/plasma.nix
+    ../../software/cosmic.nix
 
     ../../hardware/firmware.nix
     ../../hardware/ssd.nix

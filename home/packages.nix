@@ -54,7 +54,6 @@
 
     # editor
     vim
-    helix
     neovim
     emacs-pgtk
     zed-editor
@@ -81,20 +80,15 @@
     zathura
     thunar
     libreoffice-qt
-    calibre
     vscode
     thunderbird
     rnote
     pandoc
-    crow-translate
     clash-verge-rev
     pi-coding-agent
     opencode
     claude-code
     codex
-    aichat
-    aider-chat
-    fabric-ai
 
     # js
     nodejs

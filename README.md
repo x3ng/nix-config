@@ -19,6 +19,9 @@ Always use `path:.` prefix — avoids needing `git add` before build.
 ```
 flake.nix                  inputs, outputs (nixosConfigurations + homeConfigurations)
 hosts/<host>/default.nix   host assembly — imports shared modules plus small host-local settings
+hosts/<host>/hardware-configuration.nix
+                           host hardware scan, generated with --no-filesystems
+disko/                     declarative disk layouts — filesystems, mountpoints, swap
 base/                      baseline NixOS configuration shared by normal hosts
 software/                  optional NixOS modules layered on top of base
 home/home.nix              home-manager entry point — shell, starship, firefox, imports
@@ -84,7 +87,8 @@ Available hosts/users are listed in `flake.nix` outputs.
 ## Conventions
 
 - Baseline NixOS config → `base/`, optional NixOS modules → `software/`, hardware config → `hardware/`, user environment → `home/`.
-- `hosts/<host>/default.nix` chooses modules for that host and may contain small host-local settings such as hostname.
+- `disko/` owns disk layouts and generated filesystem/swap configuration; host hardware scans are generated with `nixos-generate-config --no-filesystems`.
+- `hosts/<host>/default.nix` chooses modules for that host and may contain small host-local settings such as hostname and disk devices.
 - Reusable logic belongs in `base/`, `hardware/`, `software/`, or `home/`; host-local exceptions live under `hosts/<host>/`.
 - `userGroups` option in `base/users/default.nix` lets software modules declare required groups (`userGroups = [ "docker" ]`) instead of hardcoding group lists.
 - `allowUnfree = true` set in both `flake.nix` (home-manager) and `base/nix.nix` (NixOS).

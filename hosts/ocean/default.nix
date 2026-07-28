@@ -1,6 +1,7 @@
-{ config, pkgs, lib, ... }:
+{ ... }:
 {
   imports = [
+    ../../disko/single-disk-ext4.nix
     ./hardware-configuration.nix
 
     ../../base/boot.nix
@@ -28,6 +29,10 @@
     ../../hardware/laptop.nix
     ../../hardware/cpu/intel/kaby-lake.nix
     ../../hardware/gpu/intel/kaby-lake.nix
+  ];
+
+  local.storage.disks = [
+    "/dev/nvme0n1"
   ];
 
   networking.hostName = "ocean";

@@ -8,12 +8,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko.url = "github:nix-community/disko";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, disko, ... }:
     let
       system = "x86_64-linux";
-      pkgsWithUnfree = import nixpkgs {
+      pkgs = import nixpkgs {
         inherit system;
         config = {
           allowUnfree = true;
@@ -24,12 +25,13 @@
       nixosConfigurations."ocean" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
+          disko.nixosModules.disko
           ./hosts/ocean
         ];
       };
 
       homeConfigurations."xen" = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgsWithUnfree;
+        inherit pkgs;
         modules = [ 
           ./home/home.nix 
         ];

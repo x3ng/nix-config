@@ -51,6 +51,7 @@
     chafa
     glow
     subversion
+    television
 
     # editor
     vim

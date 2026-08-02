@@ -2,19 +2,19 @@
 
 {
   home.packages = with pkgs; [
-    # dev
-    ctags
     gcc
-    clang-tools
+    nodejs
     python3
+    uv
+    pyright
+    clang-tools
+    ctags
     rustc
     cargo
     clippy
     rustfmt
     rust-analyzer
     cargo-watch
-    uv
-    pyright
     racket
     ghc
     cabal-install
@@ -24,50 +24,44 @@
     marksman
     verible
 
-    # cli
-    ripgrep
-    jq
-    yq-go
-
-    fd
-    bat
-    eza
-
-    delta
-    tmux
-    zellij
-    btop
     git
     gnumake
     cmake
-    fastfetch
+    ripgrep
+    fd
+    bat
+    eza
+    jq
+    yq-go
+    delta
+    nvd
+    wget
     tree
     gnused
     gnutar
     gawk
-    wl-clipboard
-    wget
+    subversion
+
     yazi
     chafa
     glow
-    subversion
     television
 
-    # editor
+    alacritty
+    ghostty
+    tmux
+    zellij
+    btop
+    fastfetch
+
     vim
     neovim
     emacs-pgtk
     zed-editor
 
-    # terminal
-    alacritty
-    ghostty
-
-    # browser
     chromium
     qutebrowser
 
-    # media
     ffmpeg
     vlc
     gimp
@@ -75,39 +69,38 @@
     inkscape
     obs-studio
 
-    # utils
     rofi
     flameshot
-    zathura
     thunar
     libreoffice-qt
     vscode
     thunderbird
     rnote
+    zathura
+
     pandoc
-    clash-verge-rev
+    typst
+    texliveFull
+
     pi-coding-agent
     opencode
     claude-code
     codex
 
-    # js
-    nodejs
+    nmap
+    aria2
+    proxychains-ng
+    clash-verge-rev
+    tigervnc
+    filezilla
+    rustdesk-flutter
 
-    # system
     lm_sensors
     pciutils
     usbutils
     zip
     unzip
-    proxychains-ng
-    nmap
-    aria2
     android-tools
-    tigervnc
-    filezilla
-    rustdesk-flutter
-    texliveFull
-    typst
+    wl-clipboard
   ];
 }

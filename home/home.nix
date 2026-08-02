@@ -17,6 +17,10 @@
   imports = [
     ./packages.nix
     ./modules/bash.nix
+    ./modules/starship.nix
+    ./modules/fzf.nix
+    ./modules/zoxide.nix
+    ./modules/direnv.nix
     ./modules/firefox.nix
     ./modules/trash.nix
     ./modules/caffeine.nix

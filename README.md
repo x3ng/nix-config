@@ -33,7 +33,7 @@ home/packages.nix          user packages
 Baseline NixOS configuration — boot, locale, Nix behavior, and user declarations.
 
 | Path | Purpose |
-|---|---|
+| --- | --- |
 | `boot.nix` | systemd-boot, latest kernel |
 | `local.nix` | Timezone, locale |
 | `nix.nix` | Flakes, unfree, nix-ld, home-manager CLI, stateVersion |
@@ -45,7 +45,7 @@ Baseline NixOS configuration — boot, locale, Nix behavior, and user declaratio
 Physical device configuration — firmware, audio, bluetooth, CPU, GPU, power management.
 
 | Path | Purpose |
-|---|---|
+| --- | --- |
 | `firmware.nix` | linux-firmware, fwupd, redistributable firmware |
 | `ssd.nix` | SSD TRIM (fstrim) |
 | `audio.nix` | PipeWire |
@@ -59,25 +59,28 @@ Physical device configuration — firmware, audio, bluetooth, CPU, GPU, power ma
 Optional system-level software configuration — desktop, services, networking backend, tools.
 
 | Path | Purpose |
-|---|---|
+| --- | --- |
 | `networkmanager.nix` | NetworkManager backend |
 | `tailscale.nix` | Tailscale mesh networking |
 | `mihomo.nix` | Proxy (mihomo TUN) + systemd-resolved DNS |
 | `font.nix` | System fonts (Noto, Nerd Fonts, Chinese, emoji), fontconfig |
 | `fcitx5.nix` | Chinese input method |
 | `xremap.nix` | Key remapping (uinput) |
+| `kmscon.nix` | TTY console (kmscon + Nerd Font) |
 | `cups.nix` | Printing |
 | `docker.nix` | Docker |
 | `libvirt.nix` | KVM/QEMU virtual machines |
 | `flatpak.nix` | Flatpak + Flathub |
-| `plasma.nix` | KDE Plasma 6 + X11 |
+| `cosmic.nix` | COSMIC desktop — current DE |
 
-Backup modules (not imported, kept for experimentation): `cosmic.nix`, `lxqt.nix`, `hyprland.nix`, `niri.nix`, `sddm.nix`.
+The active module list is the `imports` block in `hosts/<host>/default.nix`; this table is documentation, not the source of truth.
+
+Backup modules (not imported, kept for experimentation): `lxqt.nix`, `hyprland.nix`, `niri.nix`, `sddm.nix`, `plasma.nix`.
 
 ### Home-manager (`home/`)
 
 | Path | Purpose |
-|---|---|
+| --- | --- |
 | `home.nix` | Entry point — session variables, path, imports `packages.nix` and `modules/` |
 | `packages.nix` | Direct install packages by category (dev, cli, editor, terminal, etc.) |
 | `modules/` | Configurable app/feature modules imported by `home.nix` (bash, firefox, fzf, starship, trash) |

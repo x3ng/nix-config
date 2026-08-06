@@ -23,6 +23,5 @@
     ./modules/direnv.nix
     ./modules/firefox.nix
     ./modules/trash.nix
-    ./modules/caffeine.nix
   ];
 }

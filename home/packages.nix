@@ -48,6 +48,8 @@
     television
 
     alacritty
+    wezterm
+    kitty
     ghostty
     tmux
     zellij

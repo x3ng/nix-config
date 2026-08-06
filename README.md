@@ -24,7 +24,7 @@ hosts/<host>/hardware-configuration.nix
 disko/                     declarative disk layouts — filesystems, mountpoints, swap
 base/                      baseline NixOS configuration shared by normal hosts
 software/                  optional NixOS modules layered on top of base
-home/home.nix              home-manager entry point — shell, starship, firefox, imports
+home/home.nix              home-manager entry point — imports packages + modules
 home/packages.nix          user packages
 ```
 
@@ -75,7 +75,7 @@ Optional system-level software configuration — desktop, services, networking b
 
 The active module list is the `imports` block in `hosts/<host>/default.nix`; this table is documentation, not the source of truth.
 
-Backup modules (not imported, kept for experimentation): `lxqt.nix`, `hyprland.nix`, `niri.nix`, `sddm.nix`, `plasma.nix`.
+Backup modules (not imported, kept for experimentation): `lxqt.nix`, `hyprland.nix`, `niri.nix`, `plasma.nix`.
 
 ### Home-manager (`home/`)
 
@@ -83,7 +83,7 @@ Backup modules (not imported, kept for experimentation): `lxqt.nix`, `hyprland.n
 | --- | --- |
 | `home.nix` | Entry point — session variables, path, imports `packages.nix` and `modules/` |
 | `packages.nix` | Direct install packages by category (dev, cli, editor, terminal, etc.) |
-| `modules/` | Configurable app/feature modules imported by `home.nix` (bash, firefox, fzf, starship, trash) |
+| `modules/` | Configurable app/feature modules imported by `home.nix` (bash, starship, fzf, zoxide, direnv, firefox, trash) |
 
 Available hosts/users are listed in `flake.nix` outputs.
 

@@ -19,6 +19,7 @@
     ./modules/bash.nix
     ./modules/starship.nix
     ./modules/fzf.nix
+    ./modules/yazi.nix
     ./modules/zoxide.nix
     ./modules/direnv.nix
     ./modules/firefox.nix

@@ -42,7 +42,6 @@
     gawk
     subversion
 
-    yazi
     chafa
     glow
     television

@@ -69,6 +69,7 @@ Optional system-level software configuration — desktop, services, networking b
 | `kmscon.nix` | TTY console (kmscon + Nerd Font) |
 | `cups.nix` | Printing |
 | `docker.nix` | Docker |
+| `podman.nix` | Podman container runtime |
 | `libvirt.nix` | KVM/QEMU virtual machines |
 | `flatpak.nix` | Flatpak + Flathub |
 | `cosmic.nix` | COSMIC desktop — current DE |

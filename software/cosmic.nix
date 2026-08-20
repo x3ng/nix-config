@@ -1,13 +1,15 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
-  services.displayManager.cosmic-greeter.enable = true;
+  services = {
+    displayManager.cosmic-greeter.enable = true;
 
-  services.desktopManager.cosmic.enable = true;
+    desktopManager.cosmic.enable = true;
 
-  # Optional: better performance with system76 scheduler
-  services.system76-scheduler.enable = true;
+    # Optional: better performance with system76 scheduler
+    system76-scheduler.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     cosmic-ext-applet-caffeine

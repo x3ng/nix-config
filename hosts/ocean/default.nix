@@ -17,6 +17,7 @@
     ../../software/xremap.nix
     ../../software/cups.nix
     ../../software/docker.nix
+    ../../software/podman.nix
     ../../software/libvirt.nix
     ../../software/flatpak.nix
     ../../software/kmscon.nix

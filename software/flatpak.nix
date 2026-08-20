@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -6,7 +6,10 @@
 
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
-    after = [ "network-online.target" "systemd-resolved.service" ];
+    after = [
+      "network-online.target"
+      "systemd-resolved.service"
+    ];
     wants = [ "network-online.target" ];
     path = [ pkgs.flatpak ];
     script = ''
@@ -21,4 +24,3 @@
   };
 
 }
-

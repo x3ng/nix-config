@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -26,6 +26,10 @@
 
   networking.firewall.trustedInterfaces = [ "virbr0" ];
 
-  userGroups = [ "libvirtd" "kvm" "qemu" ];
+  userGroups = [
+    "libvirtd"
+    "kvm"
+    "qemu"
+  ];
 
 }

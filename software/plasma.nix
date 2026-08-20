@@ -1,12 +1,16 @@
-{ config, pkgs, ... }:
+_:
 
 {
-  services.xserver.enable = true;
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+  services = {
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+    };
 
-  services.desktopManager.plasma6.enable = true;
-  services.displayManager.plasma-login-manager.enable = true;
+    desktopManager.plasma6.enable = true;
+    displayManager.plasma-login-manager.enable = true;
+  };
 }

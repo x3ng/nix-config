@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   resolvectl = "${pkgs.systemd}/bin/resolvectl";
@@ -22,7 +27,10 @@ in
     enable = true;
     settings = {
       Resolve = {
-        FallbackDNS = [ "223.5.5.5" "119.29.29.29" ];
+        FallbackDNS = [
+          "223.5.5.5"
+          "119.29.29.29"
+        ];
         # mihomo fake-ip 返回合成 IP，DNSSEC 验证会失败导致间歇性 DNS 故障
         DNSSEC = "no";
         # mihomo 已处理加密，resolved 不需要再做 DNS-over-TLS
@@ -44,7 +52,7 @@ in
   # default-off: start on demand
   # DNS is handled by mihomo's TUN dns-hijack (config.yaml), no need to touch system DNS
   systemd.services.mihomo = {
-    wantedBy = lib.mkForce [];
+    wantedBy = lib.mkForce [ ];
 
     serviceConfig = {
       # AF_UNIX: Go runtime internal socketpairs, sd_notify, and D-Bus with systemd-resolved

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   checkScript = pkgs.writeShellScript "xremap-check" ''

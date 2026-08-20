@@ -1,10 +1,13 @@
-{ config, pkgs, lib, ... }:
+{
+  lib,
+  ...
+}:
 
 {
 
   options.userGroups = lib.mkOption {
     type = lib.types.listOf lib.types.str;
-    default = [];
+    default = [ ];
     description = "User groups required by enabled services, merged automatically";
   };
 

@@ -1,17 +1,19 @@
 { ... }:
 
 {
-  home.username = "xen";
-  home.homeDirectory = "/home/xen";
-  home.stateVersion = "26.05";
+  home = {
+    username = "xen";
+    homeDirectory = "/home/xen";
+    stateVersion = "26.05";
 
-  home.sessionPath = [
-    "$HOME/.local/bin"
-  ];
+    sessionPath = [
+      "$HOME/.local/bin"
+    ];
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+    };
   };
 
   imports = [

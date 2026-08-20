@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.hyprland = {
@@ -18,7 +18,6 @@
     };
   };
 
-
   # Screen sharing + file picker portals
   xdg.portal = {
     enable = true;
@@ -27,7 +26,10 @@
       pkgs.xdg-desktop-portal-gtk
     ];
     config.hyprland = {
-      default = [ "hyprland" "gtk" ];
+      default = [
+        "hyprland"
+        "gtk"
+      ];
     };
   };
 
@@ -35,7 +37,7 @@
   xdg.portal.xdgOpenUsePortal = true;
 
   # Lock screen PAM
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
 
   # Power management
   services.upower.enable = true;

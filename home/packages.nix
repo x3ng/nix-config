@@ -41,6 +41,11 @@
     gnutar
     gawk
     subversion
+    nil
+    nixfmt
+    statix
+    deadnix
+    nh
 
     chafa
     glow
@@ -50,6 +55,7 @@
     wezterm
     kitty
     ghostty
+    rio
     tmux
     zellij
     btop
@@ -74,7 +80,6 @@
     flameshot
     thunar
     libreoffice-qt
-    vscode
     thunderbird
     rnote
     zathura
@@ -82,11 +87,6 @@
     pandoc
     typst
     texliveFull
-
-    pi-coding-agent
-    opencode
-    claude-code
-    codex
 
     nmap
     aria2

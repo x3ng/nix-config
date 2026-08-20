@@ -14,6 +14,15 @@ nix flake update
 
 Always use `path:.` prefix — avoids needing `git add` before build.
 
+`nh` is available in the user profile as a lower-friction frontend:
+
+```bash
+nh os switch path:.
+nh home switch path:.
+```
+
+Use `-H <host>` or `-c <user>` only when selecting a non-default NixOS host or home-manager configuration.
+
 ## Structure
 
 ```

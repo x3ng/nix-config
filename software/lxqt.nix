@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   services.xserver.desktopManager.lxqt.enable = true;
@@ -33,5 +33,8 @@
   services.libinput.enable = true;
 
   xdg.portal.lxqt.enable = true;
-  xdg.portal.config.lxqt.default = [ "lxqt" "gtk" ];
+  xdg.portal.config.lxqt.default = [
+    "lxqt"
+    "gtk"
+  ];
 }

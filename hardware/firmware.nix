@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  hardware.enableRedistributableFirmware = true;
-  hardware.firmware = [ pkgs.linux-firmware ];
-  hardware.enableAllFirmware = true;
+  hardware = {
+    enableRedistributableFirmware = true;
+    firmware = [ pkgs.linux-firmware ];
+    enableAllFirmware = true;
+  };
 
   services.fwupd.enable = true;
 }

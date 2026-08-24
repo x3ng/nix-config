@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    tree-sitter
     gcc
     nodejs
     python3
@@ -67,7 +68,6 @@
     zed-editor
 
     chromium
-    qutebrowser
 
     ffmpeg
     vlc
@@ -95,6 +95,7 @@
     tigervnc
     filezilla
     rustdesk-flutter
+    localsend
 
     lm_sensors
     pciutils

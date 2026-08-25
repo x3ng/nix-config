@@ -7,6 +7,7 @@
     ../../base/boot.nix
     ../../base/local.nix
     ../../base/nix.nix
+    ../../base/firewall.nix
     ../../base/users
     ../../base/users/xen.nix
     ../../software/networkmanager.nix
@@ -24,12 +25,15 @@
     ../../software/cosmic.nix
 
     ../../hardware/firmware.nix
-    ../../hardware/ssd.nix
     ../../hardware/audio.nix
     ../../hardware/bluetooth.nix
-    ../../hardware/laptop.nix
-    ../../hardware/cpu/intel/kaby-lake.nix
-    ../../hardware/gpu/intel/kaby-lake.nix
+    ../../hardware/cpu/kaby-lake.nix
+    ../../hardware/gpu/kaby-lake.nix
+    ../../hardware/input/trackpoint.nix
+    ../../hardware/thinkpad/battery.nix
+    ../../hardware/power/ppd.nix
+    ../../hardware/storage/nvme.nix
+    ../../hardware/storage/fstrim.nix
   ];
 
   local.storage.disks = [

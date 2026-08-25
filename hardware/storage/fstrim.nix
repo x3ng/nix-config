@@ -1,4 +1,4 @@
-_:
+{ ... }:
 
 {
   # SSD maintenance

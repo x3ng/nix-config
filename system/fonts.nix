@@ -1,32 +1,24 @@
 # System-wide fonts and fontconfig.
-#
-# Principles:
-# - Latin-first ordering: real Latin fonts render ASCII; CJK fonts only kick
-#   in for CJK glyphs (CJK-embedded Latin has wide spacing/odd metrics).
-# - Second slot in every chain is a full-coverage Noto CJK font, so glyph
-#   fallback is intercepted before reaching deep-fallback scans. This keeps
-#   LXGW WenKai (kaiti style) from ever being picked implicitly.
-#
-# kmscon note: fontconfig settings here are global (pango reads /etc/fonts),
-# so they DO affect kmscon's glyph fallback. Its primary font stays pinned
-# via software/kmscon.nix `font-name`, which is the actual isolation lever.
 { pkgs, ... }:
 
 {
   fonts.packages = with pkgs; [
+    inter
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-color-emoji
     corefonts
+    vista-fonts
 
-    nerd-fonts.jetbrains-mono
+    nerd-fonts.iosevka-term
+    jetbrains-mono
+    source-code-pro
+    monaspace
     maple-mono.variable
+    maple-mono.NF-CN
     sarasa-gothic
-    unifont # explicit: defaultFonts floor below must not depend on enableDefaultPackages
-
-    # Installed but deliberately absent from defaultFonts below: usable when
-    # explicitly requested by name, never as an implicit fallback.
+    unifont
     lxgw-wenkai
 
     font-awesome
@@ -54,10 +46,14 @@
         "Noto Serif CJK SC"
       ];
       monospace = [
-        "JetBrainsMono Nerd Font"
-        "Maple Mono"
-        "Sarasa Mono SC" # terminal CJK with exact halfwidth alignment
-        "Unifont" # last-resort readability floor
+        "IosevkaTerm Nerd Font Mono"
+        "Maple Mono NF CN"
+        "Sarasa Mono SC"
+        "Monaspace Neon"
+        "Monaspace Argon"
+        "JetBrains Mono"
+        "Source Code Pro"
+        "Unifont"
       ];
       emoji = [ "Noto Color Emoji" ];
     };

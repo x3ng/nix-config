@@ -76,7 +76,7 @@
     inkscape
     obs-studio
 
-    rofi
+    anyrun
     flameshot
     thunar
     libreoffice-qt

@@ -1,13 +1,13 @@
 { pkgs, ... }:
 
 {
-  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+  fonts.packages = [ pkgs.nerd-fonts.iosevka-term ];
 
   services.kmscon = {
     enable = true;
     useXkbConfig = true;
     config = {
-      font-name = "JetBrainsMonoNL Nerd Font Mono";
+      font-name = "IosevkaTerm Nerd Font Mono";
     };
   };
 }

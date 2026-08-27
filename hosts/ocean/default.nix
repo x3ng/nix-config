@@ -21,10 +21,10 @@
     ../../software/xremap.nix
     ../../software/kmscon.nix
     ../../software/cups.nix
-    ../../software/docker.nix
     ../../software/podman.nix
     ../../software/libvirt.nix
     ../../software/flatpak.nix
+    ../../software/appimage.nix
     ../../software/cosmic.nix
 
     # hardware — physical devices

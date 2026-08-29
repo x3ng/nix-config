@@ -7,23 +7,13 @@
     nodejs
     python3
     uv
-    pyright
-    clang-tools
     ctags
     rustc
     cargo
     clippy
     rustfmt
-    rust-analyzer
     cargo-watch
     racket
-    ghc
-    cabal-install
-    ormolu
-    haskell-language-server
-    lua-language-server
-    marksman
-    verible
 
     git
     gnumake
@@ -37,7 +27,6 @@
     delta
     nvd
     wget
-    tree
     gnused
     gnutar
     gawk

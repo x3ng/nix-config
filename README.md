@@ -99,7 +99,7 @@ Physical device configuration — swap these out per machine.
 | --- | --- |
 | `home.nix` | Entry point — session variables, path, imports `packages.nix` and `modules/` |
 | `packages.nix` | Direct install packages by category (dev, cli, editor, terminal, etc.) |
-| `modules/` | Configurable app/feature modules imported by `home.nix` (bash, starship, fzf, zoxide, direnv, firefox, trash) |
+| `modules/` | Configurable app/feature modules imported by `home.nix` (bash, starship, fzf, zoxide, direnv, firefox, trash, wps) |
 
 Available hosts/users are listed in `flake.nix` outputs.
 

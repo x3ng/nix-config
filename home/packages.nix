@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     tree-sitter
     gcc
+    zig
     nodejs
     python3
     uv
@@ -52,6 +53,7 @@
     fastfetch
 
     vim
+    helix
     neovim
     emacs-pgtk
     zed-editor

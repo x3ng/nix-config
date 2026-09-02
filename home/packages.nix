@@ -42,11 +42,7 @@
     glow
     television
 
-    alacritty
-    wezterm
     kitty
-    ghostty
-    rio
     tmux
     zellij
     btop

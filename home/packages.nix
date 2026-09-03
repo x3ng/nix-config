@@ -2,13 +2,12 @@
 
 {
   home.packages = with pkgs; [
-    tree-sitter
+    # Language runtimes and toolchains
     gcc
     zig
     nodejs
     python3
     uv
-    ctags
     rustc
     cargo
     clippy
@@ -16,6 +15,22 @@
     cargo-watch
     racket
 
+    # Language servers and code intelligence
+    tree-sitter
+    ctags
+    nil
+    typescript-language-server
+    vscode-langservers-extracted
+    yaml-language-server
+    ty
+    taplo
+    rust-analyzer
+    clang-tools
+    bash-language-server
+    marksman
+    lua-language-server
+
+    # Development and command-line tools
     git
     gnumake
     cmake
@@ -32,12 +47,12 @@
     gnutar
     gawk
     subversion
-    nil
     nixfmt
     statix
     deadnix
     nh
 
+    # Terminal applications and editors
     chafa
     glow
     television
@@ -54,6 +69,7 @@
     emacs-pgtk
     zed-editor
 
+    # Desktop applications
     chromium
 
     ffmpeg
@@ -71,10 +87,12 @@
     rnote
     zathura
 
+    # Documents and publishing
     pandoc
     typst
     texliveFull
 
+    # Networking and remote access
     nmap
     aria2
     proxychains-ng
@@ -84,6 +102,7 @@
     rustdesk-flutter
     localsend
 
+    # System and device utilities
     lm_sensors
     pciutils
     usbutils

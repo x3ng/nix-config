@@ -29,6 +29,7 @@
     bash-language-server
     marksman
     lua-language-server
+    verible
 
     # Development and command-line tools
     git

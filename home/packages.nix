@@ -83,7 +83,6 @@
     anyrun
     flameshot
     thunar
-    libreoffice-qt
     thunderbird
     rnote
     zathura

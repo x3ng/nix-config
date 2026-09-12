@@ -10,6 +10,7 @@
   # Display manager
   services.greetd = {
     enable = true;
+    useTextGreeter = true;
     settings = {
       default_session = {
         command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --asterisks --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot'";
@@ -22,10 +23,9 @@
   xdg.portal = {
     enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
     ];
-    config.hyprland = {
+    config.common = {
       default = [
         "hyprland"
         "gtk"
@@ -57,13 +57,14 @@
     hyprlock
     hypridle
     hyprshutdown
+    hyprmoncfg
 
-    # Shell / bar
+    # Shell / bar — runtime behavior and appearance are configured in dotfiles.
     quickshell
-    papirus-icon-theme
 
-    # Launcher
-    rofi
+    # Keep the GTK/XCursor assets selected in dotfiles available system-wide.
+    kdePackages.breeze
+    kdePackages.breeze-icons
 
     # Notifications
     mako
@@ -74,10 +75,7 @@
     satty
 
     # Clipboard history
-    cliphist
-
-    # Wallpaper
-    hyprpaper
+    clipse
 
     # Hardware controls
     brightnessctl
@@ -92,7 +90,6 @@
 
     # Display config
     wlr-randr
-    nwg-displays
   ];
 
   security.wrappers.brightnessctl = {

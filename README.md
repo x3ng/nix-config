@@ -70,11 +70,10 @@ needs it to function as a base OS, it belongs in `system/`; otherwise `software/
 | `podman.nix` | Podman container runtime |
 | `libvirt.nix` | KVM/QEMU virtual machines |
 | `flatpak.nix` | Flatpak + Flathub |
-| `cosmic.nix` | COSMIC desktop — current DE |
+| `cosmic.nix` | COSMIC desktop |
+| `gnome.nix` | GNOME desktop (GDM; appindicator installed, enable in Extension Manager) |
 
 The active module list is the `imports` block in `hosts/<host>/default.nix`; this table is documentation, not the source of truth.
-
-Backup modules (not imported, kept for experimentation): `lxqt.nix`, `hyprland.nix`, `niri.nix`, `plasma.nix`.
 
 ### Hardware (`hardware/`)
 

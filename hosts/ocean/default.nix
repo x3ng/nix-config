@@ -25,7 +25,7 @@
     ../../software/libvirt.nix
     ../../software/flatpak.nix
     ../../software/appimage.nix
-    ../../software/cosmic.nix
+    ../../software/gnome.nix
 
     # hardware — physical devices
     ../../hardware/firmware.nix

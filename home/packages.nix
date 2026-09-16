@@ -59,6 +59,7 @@
     television
 
     kitty
+    foot
     tmux
     zellij
     btop
@@ -69,6 +70,7 @@
     neovim
     emacs-pgtk
     zed-editor
+    vscodium
 
     # Desktop applications
     chromium
@@ -80,7 +82,6 @@
     inkscape
     obs-studio
 
-    anyrun
     flameshot
     thunar
     thunderbird

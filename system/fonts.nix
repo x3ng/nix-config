@@ -23,6 +23,8 @@
 
     font-awesome
     material-design-icons
+
+    (pkgs.callPackage ./fonts-completion.nix { })
   ];
 
   fonts.fontconfig = {

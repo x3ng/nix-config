@@ -33,10 +33,13 @@ let
       --share-net \
       --bind / / \
       --tmpfs /tmp \
+      --dev-bind /tmp/.X11-unix /tmp/.X11-unix \
       --dev-bind /dev /dev \
       --proc /proc \
       --ro-bind /run/current-system/sw/bin /bin \
       --setenv PATH /bin \
+      --setenv LD_PRELOAD "${pkgs.freetype}/lib/libfreetype.so" \
+      --setenv LD_LIBRARY_PATH "${pkgs.lib.makeLibraryPath [ pkgs.gcc-unwrapped.lib ]}" \
       ${wpsPkg}/bin/${app} "$@"
     ${pkgs.procps}/bin/pkill -x wpscloudsvr 2>/dev/null || true
   '';

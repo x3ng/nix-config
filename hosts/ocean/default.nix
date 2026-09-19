@@ -17,7 +17,6 @@
     ../../software/firewall.nix
     ../../software/tailscale.nix
     ../../software/mihomo.nix
-    ../../software/fcitx5.nix
     ../../software/xremap.nix
     ../../software/kmscon.nix
     ../../software/cups.nix
@@ -25,7 +24,7 @@
     ../../software/libvirt.nix
     ../../software/flatpak.nix
     ../../software/appimage.nix
-    ../../software/cosmic.nix
+    ../../software/hyprland.nix
 
     # hardware — physical devices
     ../../hardware/firmware.nix

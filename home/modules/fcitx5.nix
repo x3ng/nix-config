@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
@@ -10,5 +9,4 @@
       qt6Packages.fcitx5-configtool
     ];
   };
-
 }

@@ -4,52 +4,26 @@
   programs.hyprland = {
     enable = true;
     withUWSM = true;
-    xwayland.enable = true;
   };
 
   # Display manager
-  services.greetd = {
-    enable = true;
-    useTextGreeter = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --asterisks --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot'";
-        user = "greeter";
-      };
-    };
-  };
+  services.displayManager.regreet.enable = true;
 
-  # Screen sharing + file picker portals
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    config.common = {
-      default = [
-        "hyprland"
-        "gtk"
-      ];
-    };
-  };
-
-  # xdg-open should use portal system on Wayland
+  # Hyprland enables and configures its screen-sharing and GTK portals.
   xdg.portal.xdgOpenUsePortal = true;
 
   # Lock screen PAM
   security.pam.services.hyprlock = { };
 
   # Power management
-  services.upower.enable = true;
-  services.logind = {
-    settings.Login = {
+  services = {
+    upower.enable = true;
+    logind.settings.Login = {
       HandleLidSwitch = "suspend";
       HandleLidSwitchExternalPower = "lock";
       HandlePowerKey = "suspend";
     };
   };
-
-  services.blueman.enable = true;
 
   environment.systemPackages = with pkgs; [
     # Hyprland ecosystem
@@ -59,15 +33,16 @@
     hyprshutdown
     hyprmoncfg
 
-    # Shell / bar — runtime behavior and appearance are configured in dotfiles.
-    quickshell
+    anyrun
 
-    # Keep the GTK/XCursor assets selected in dotfiles available system-wide.
-    kdePackages.breeze
-    kdePackages.breeze-icons
+    # Desktop shell; runtime behavior and appearance are configured in dotfiles.
+    noctalia-shell
 
-    # Notifications
-    mako
+    # Qt theming
+    qt6Packages.qt6ct
+
+    # Icon theme
+    papirus-icon-theme
 
     # Screenshot + annotation
     grim
@@ -84,18 +59,5 @@
 
     # Auto-mount USB
     udiskie
-
-    # System tray apps
-    networkmanagerapplet
-
-    # Display config
-    wlr-randr
   ];
-
-  security.wrappers.brightnessctl = {
-    source = "${pkgs.brightnessctl}/bin/brightnessctl";
-    capabilities = "cap_sys_rawio+ep";
-    owner = "root";
-    group = "root";
-  };
 }

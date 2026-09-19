@@ -62,7 +62,8 @@ needs it to function as a base OS, it belongs in `system/`; otherwise `software/
 | `firewall.nix` | Firewall enable |
 | `tailscale.nix` | Tailscale mesh networking |
 | `mihomo.nix` | Proxy (mihomo TUN) + systemd-resolved DNS |
-| `fcitx5.nix` | Chinese input method |
+| `hyprland.nix` | Hyprland Wayland desktop + regreet display manager |
+| `cosmic.nix` | COSMIC desktop |
 | `xremap.nix` | Key remapping (uinput) |
 | `kmscon.nix` | TTY console (kmscon + pinned Nerd Font) |
 | `cups.nix` | Printing |
@@ -98,7 +99,7 @@ Physical device configuration — swap these out per machine.
 | --- | --- |
 | `home.nix` | Entry point — session variables, path, imports `packages.nix` and `modules/` |
 | `packages.nix` | Direct install packages by category (dev, cli, editor, terminal, etc.) |
-| `modules/` | Configurable app/feature modules imported by `home.nix` (bash, starship, fzf, zoxide, direnv, firefox, trash, wps) |
+| `modules/` | Configurable app/feature modules imported by `home.nix` (bash, starship, fzf, zoxide, direnv, firefox, trash, wps, fcitx5) |
 
 Available hosts/users are listed in `flake.nix` outputs.
 

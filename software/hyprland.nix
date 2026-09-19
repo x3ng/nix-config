@@ -6,17 +6,22 @@
     withUWSM = true;
   };
 
-  # Display manager
-  services.displayManager.regreet.enable = true;
-
   # Hyprland enables and configures its screen-sharing and GTK portals.
   xdg.portal.xdgOpenUsePortal = true;
 
   # Lock screen PAM
   security.pam.services.hyprlock = { };
 
-  # Power management
+  # System services
   services = {
+    greetd = {
+      enable = true;
+      settings.default_session = {
+        user = "greeter";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --asterisks --sessions ${pkgs.hyprland}/share/wayland-sessions";
+      };
+    };
+
     upower.enable = true;
     logind.settings.Login = {
       HandleLidSwitch = "suspend";
@@ -40,6 +45,9 @@
 
     # Qt theming
     qt6Packages.qt6ct
+
+    # Cursor theme
+    bibata-cursors
 
     # Icon theme
     papirus-icon-theme

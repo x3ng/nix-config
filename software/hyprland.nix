@@ -38,7 +38,7 @@
     hyprshutdown
     hyprmoncfg
 
-    anyrun
+    rofi
 
     # Notification daemon
     mako

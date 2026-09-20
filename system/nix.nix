@@ -11,8 +11,6 @@
 
   programs.nix-ld.enable = true;
 
-  programs.command-not-found.enable = true;
-
   environment.systemPackages = with pkgs; [
     home-manager
   ];

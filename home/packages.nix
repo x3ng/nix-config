@@ -111,5 +111,7 @@
     unzip
     android-tools
     wl-clipboard
+
+    wemeet
   ];
 }

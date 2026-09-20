@@ -40,8 +40,11 @@
 
     anyrun
 
-    # Desktop shell; runtime behavior and appearance are configured in dotfiles.
-    noctalia-shell
+    # Notification daemon
+    mako
+
+    # Quickshell (bar/shell interface — dotfiles config at ~/.config/quickshell)
+    quickshell
 
     # Qt theming
     qt6Packages.qt6ct

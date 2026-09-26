@@ -15,7 +15,6 @@
     # software — optional modules, pick per host
     ../../software/networkmanager.nix
     ../../software/firewall.nix
-    ../../software/tailscale.nix
     ../../software/mihomo.nix
     ../../software/xremap.nix
     ../../software/kmscon.nix

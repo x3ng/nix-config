@@ -24,7 +24,6 @@
     ../../software/flatpak.nix
     ../../software/appimage.nix
     ../../software/hyprland.nix
-    ../../software/sunshine.nix
 
     # hardware — physical devices
     ../../hardware/firmware.nix

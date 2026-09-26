@@ -70,7 +70,7 @@ needs it to function as a base OS, it belongs in `system/`; otherwise `software/
 | `docker.nix` | Docker |
 | `podman.nix` | Podman container runtime |
 | `libvirt.nix` | KVM/QEMU virtual machines |
-| `flatpak.nix` | Flatpak + Flathub |
+| `flatpak.nix` | Flatpak service (remotes are managed separately) |
 | `cosmic.nix` | COSMIC desktop |
 | `gnome.nix` | GNOME desktop (GDM; appindicator installed, enable in Extension Manager) |
 

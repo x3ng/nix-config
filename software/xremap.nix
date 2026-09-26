@@ -1,31 +1,21 @@
 { pkgs, ... }:
 
-let
-  checkScript = pkgs.writeShellScript "xremap-check" ''
-    if [ ! -e /dev/uinput ]; then
-      echo "ERROR: /dev/uinput not found. Run: sudo modprobe uinput" >&2
-      exit 1
-    fi
-    if [ ! -f /etc/xremap/config.yml ]; then
-      echo "ERROR: /etc/xremap/config.yml not found" >&2
-      exit 1
-    fi
-  '';
-in
 {
-  boot.kernelModules = [ "uinput" ];
+  users.groups.xremap = { };
 
-  services.udev.extraRules = ''
-    KERNEL=="uinput", MODE="0660", GROUP="input", TAG+="uaccess"
-  '';
+  users.users.xremap = {
+    isSystemUser = true;
+    group = "xremap";
+    extraGroups = [ "input" "uinput" ];
+  };
+
+  hardware.uinput.enable = true;
 
   systemd.services.xremap = {
     description = "xremap key remapper";
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      User = "xen";
-      Group = "input";
-      ExecStartPre = "${checkScript}";
+      User = "xremap";
       ExecStart = "${pkgs.xremap}/bin/xremap --watch=config /etc/xremap/config.yml";
       Restart = "on-failure";
       RestartSec = 2;

@@ -75,6 +75,21 @@
     # Desktop applications
     chromium
 
+    # Common user tools, kept available when changing the desktop session.
+    rofi
+    mako
+    qt6Packages.qt6ct
+    imv
+    xarchiver
+    grim
+    slurp
+    satty
+    clipse
+    brightnessctl
+    playerctl
+    pavucontrol
+    udiskie
+
     ffmpeg
     vlc
     gimp
@@ -111,7 +126,5 @@
     unzip
     android-tools
     wl-clipboard
-
-    wemeet
   ];
 }

@@ -31,44 +31,17 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # Hyprland ecosystem
+    # Hyprland-session components; keep these with the optional compositor module.
     hyprpolkitagent
     hyprlock
     hypridle
     hyprshutdown
     hyprmoncfg
-
-    rofi
-
-    # Notification daemon
-    mako
-
-    # Quickshell (bar/shell interface — dotfiles config at ~/.config/quickshell)
     quickshell
+    hyprpaper
 
-    # Qt theming
-    qt6Packages.qt6ct
-
-    # Cursor theme
+    # Session-wide appearance assets are also available to the greeter.
     bibata-cursors
-
-    # Icon theme
     papirus-icon-theme
-
-    # Screenshot + annotation
-    grim
-    slurp
-    satty
-
-    # Clipboard history
-    clipse
-
-    # Hardware controls
-    brightnessctl
-    playerctl
-    pavucontrol
-
-    # Auto-mount USB
-    udiskie
   ];
 }

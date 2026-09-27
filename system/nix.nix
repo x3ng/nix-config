@@ -14,7 +14,4 @@
   environment.systemPackages = with pkgs; [
     home-manager
   ];
-
-  system.stateVersion = "26.05";
-
 }

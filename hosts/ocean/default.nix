@@ -43,4 +43,5 @@
   ];
 
   networking.hostName = "ocean";
+  system.stateVersion = "26.05";
 }

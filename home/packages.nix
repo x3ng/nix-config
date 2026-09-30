@@ -71,6 +71,7 @@
     emacs-pgtk
     zed-editor
     vscodium
+    opencode-desktop
 
     # Desktop applications
     chromium
@@ -78,6 +79,7 @@
     # Common user tools, kept available when changing the desktop session.
     rofi
     mako
+    nwg-look
     qt6Packages.qt6ct
     imv
     xarchiver

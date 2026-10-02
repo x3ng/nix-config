@@ -16,7 +16,7 @@
     ../../software/networkmanager.nix
     ../../software/firewall.nix
     ../../software/mihomo.nix
-    ../../software/xremap.nix
+    ../../software/keyd.nix
     ../../software/kmscon.nix
     ../../software/cups.nix
     ../../software/podman.nix

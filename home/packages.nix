@@ -13,7 +13,6 @@
     clippy
     rustfmt
     cargo-watch
-    racket
 
     # Language servers and code intelligence
     tree-sitter
@@ -69,7 +68,6 @@
     helix
     neovim
     emacs-pgtk
-    zed-editor
     vscodium
     opencode-desktop
 

@@ -13,8 +13,10 @@
     }
   ];
 
-  # NetworkManager supplies DHCP DNS to resolved while mihomo is stopped or running.
+  # Mihomo's native TUN integration registers temporary link DNS with resolved.
+  # DHCP DNS remains configured and resumes when the TUN link is removed.
   networking.networkmanager.dns = "systemd-resolved";
+  networking.networkmanager.unmanaged = [ "interface-name:Mihomo" ];
   services.resolved = {
     enable = true;
     settings.Resolve = {
@@ -22,6 +24,23 @@
       DNSOverTLS = "no";
     };
   };
+
+  # NetworkManager enables Polkit. Let the restricted daemon manage only its
+  # own link's DNS through Mihomo's native resolved integration.
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (subject.user === "mihomo" &&
+          action.lookup("interface") === "Mihomo" &&
+          [
+            "org.freedesktop.resolve1.set-dns-servers",
+            "org.freedesktop.resolve1.set-domains",
+            "org.freedesktop.resolve1.set-default-route",
+            "org.freedesktop.resolve1.revert"
+          ].indexOf(action.id) >= 0) {
+        return polkit.Result.YES;
+      }
+    });
+  '';
 
   services.mihomo = {
     enable = true;
@@ -32,11 +51,14 @@
 
   systemd.services.mihomo = {
     wantedBy = lib.mkForce [ ];
+    requires = [ "systemd-resolved.service" ];
+    after = [ "systemd-resolved.service" ];
     serviceConfig = {
-      AmbientCapabilities = lib.mkForce [ "CAP_NET_ADMIN" "CAP_NET_BIND_SERVICE" ];
-      CapabilityBoundingSet = lib.mkForce [ "CAP_NET_ADMIN" "CAP_NET_BIND_SERVICE" ];
+      AmbientCapabilities = lib.mkForce [ "CAP_NET_ADMIN" ];
+      CapabilityBoundingSet = lib.mkForce [ "CAP_NET_ADMIN" ];
       Restart = "on-failure";
       RestartSec = "1s";
+      # AF_UNIX permits the native resolved integration to use D-Bus.
       RestrictAddressFamilies = lib.mkForce "AF_UNIX AF_INET AF_INET6 AF_NETLINK";
     };
   };

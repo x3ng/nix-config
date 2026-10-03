@@ -100,6 +100,11 @@ let
       mkdir -p $out/libexec/ediary
       cp -r ediary-root/opt/ediary/. $out/libexec/ediary/
 
+      # The bundled OpenSSL libraries use versioned SONAMEs but ship without
+      # the corresponding filenames.
+      ln -s libcrypto.so $out/libexec/ediary/resources/ssl/libcrypto.so.1.0.0
+      ln -s libssl.so $out/libexec/ediary/resources/ssl/libssl.so.1.0.0
+
       makeWrapper $out/libexec/ediary/ediary $out/bin/ediary \
         --prefix LD_LIBRARY_PATH : ${lib.makeLibraryPath gtkStack}:"$out/libexec/ediary/resources/ssl"
 

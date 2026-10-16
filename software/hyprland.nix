@@ -1,19 +1,5 @@
 { lib, pkgs, ... }:
 
-let
-  # Package-only adaptation: consumers call the standard gsettings command.
-  portalSettings =
-    pkgs.runCommand "portal-gsettings"
-      {
-        nativeBuildInputs = [ pkgs.makeWrapper ];
-      }
-      ''
-        mkdir -p "$out/bin"
-        makeWrapper ${pkgs.glib.bin}/bin/gsettings "$out/bin/gsettings" \
-          --set GSETTINGS_SCHEMA_DIR "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}/glib-2.0/schemas" \
-          --prefix GIO_EXTRA_MODULES : "${pkgs.dconf.lib}/lib/gio/modules"
-      '';
-in
 {
   programs.hyprland = {
     enable = true;
@@ -21,15 +7,47 @@ in
   };
 
   xdg.portal.xdgOpenUsePortal = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.darkman
+  ];
   xdg.portal.config.hyprland = {
     default = [
       "hyprland"
       "gtk"
     ];
-    "org.freedesktop.impl.portal.Settings" = [ "gtk" ];
+    "org.freedesktop.impl.portal.Settings" = [ "darkman" ];
   };
   programs.dconf.enable = true;
+
+  # Darkman publishes the application preference; Quickshell observes its socket.
+  services.dbus.packages = [ pkgs.darkman ];
+  systemd.packages = [ pkgs.darkman ];
+  environment.etc."xdg/darkman/config.yaml".text = ''
+    usegeoclue: true
+    portal: true
+  '';
+  systemd.user.services.darkman = {
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+  };
+
+  # Hyprland has no location agent of its own.
+  services.geoclue2 = {
+    enable = true;
+    enableDemoAgent = true;
+    appConfig.darkman = {
+      isAllowed = true;
+      isSystem = true;
+    };
+  };
+  # Include GeoClue's IP fallback, omitted by the NixOS module.
+  environment.etc."geoclue/geoclue.conf".text = lib.mkAfter ''
+    [ip]
+    enable=true
+    method=ichnaea
+  '';
 
   # Lock screen PAM
   security.pam.services.hyprlock = { };
@@ -60,7 +78,7 @@ in
     hyprshutdown
     hyprmoncfg
     quickshell
-    (lib.hiPrio portalSettings)
+    darkman
     hyprpaper
 
     # Session-wide appearance assets are also available to the greeter.

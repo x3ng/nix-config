@@ -78,8 +78,27 @@
     hyprshutdown
     hyprmoncfg
     quickshell
+    # On-demand Wayland keyboard, opened from the Quickshell launcher.
+    wvkbd
     darkman
     hyprpaper
+
+    # Toolkit appearance settings for this session without a desktop control center.
+    nwg-look
+    qt6Packages.qt6ct
+
+    # Screenshot and clipboard commands used by the Hyprland bindings/startup.
+    grim
+    slurp
+    satty
+    wl-clipboard
+    clipse
+
+    # Desktop controls and removable-media automount for this session.
+    brightnessctl
+    playerctl
+    pavucontrol
+    udiskie
 
     # Session-wide appearance assets are also available to the greeter.
     bibata-cursors

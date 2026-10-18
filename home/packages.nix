@@ -5,6 +5,7 @@
     # Language runtimes and toolchains
     gcc
     zig
+    go
     nodejs
     python3
     uv
@@ -16,7 +17,7 @@
 
     # Language servers and code intelligence
     tree-sitter
-    ctags
+    gopls
     nil
     typescript-language-server
     vscode-langservers-extracted
@@ -75,20 +76,8 @@
     chromium
 
     # Common user tools, kept available when changing the desktop session.
-    rofi
-    mako
-    nwg-look
-    qt6Packages.qt6ct
     imv
     xarchiver
-    grim
-    slurp
-    satty
-    clipse
-    brightnessctl
-    playerctl
-    pavucontrol
-    udiskie
 
     ffmpeg
     vlc
@@ -111,6 +100,7 @@
     # Networking and remote access
     nmap
     aria2
+    rayburst
     proxychains-ng
     clash-verge-rev
     tigervnc
@@ -122,9 +112,17 @@
     lm_sensors
     pciutils
     usbutils
+    android-tools
+
+    # Archives and compression
+    # tar + gzip/bzip2/xz/lzma/zstd and plain zip come from the system profile.
+    # _7zz is the official 7-Zip CLI (ip7z/7zip); the -rar variant adds the
+    # unrar-licensed decoder, which plain _7zz lacks for pre-RAR5 archives.
+    # unrar stays for password-protected archives, where it is the reference.
+    # Note: 7-Zip has no zstd codec, use the zstd(1) from the system for that.
     zip
     unzip
-    android-tools
-    wl-clipboard
+    _7zz-rar
+    unrar
   ];
 }

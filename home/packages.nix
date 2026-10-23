@@ -66,11 +66,9 @@
     fastfetch
 
     vim
-    helix
     neovim
     emacs-pgtk
     vscodium
-    opencode-desktop
 
     # Desktop applications
     chromium
@@ -106,7 +104,6 @@
     tigervnc
     filezilla
     rustdesk-flutter
-    localsend
 
     # System and device utilities
     lm_sensors

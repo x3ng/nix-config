@@ -27,7 +27,6 @@
     ./modules/firefox.nix
     ./modules/trash.nix
     ./modules/wps.nix
-    ./modules/ediary.nix
     ./modules/fcitx5.nix
   ];
 }

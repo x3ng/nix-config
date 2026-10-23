@@ -14,37 +14,44 @@ let
   #    be re-bound AFTER --bind / /: --dev-bind /dev /dev and --proc /proc. If either
   #    comes first, --bind / / overlays the host /dev (read-only /dev/null) or host
   #    /proc (breaks WPS under --unshare-pid), and WPS fails to start. So the order
-  #    is: --bind / /, then --tmpfs /tmp, then --dev-bind /dev /dev, then --proc /proc.
-  #   - We use a fresh --tmpfs /tmp (not the host /tmp) so the WPS launcher script's
-  #    internal `awk -F'='` OEM probe doesn't trip over stale files in the host /tmp
-  #    (harmless warning otherwise), and so temp files don't leak across sessions.
+  #    is: --bind / /, then --dev-bind /dev /dev, then --proc /proc.
+  #   - Keep the host /tmp visible so temporary documents passed by other apps,
+  #    file pickers and drag-and-drop remain accessible, along with X11 sockets.
   #  - bwrap's own --proc /proc (not the host /proc) is required; with the host
   #    /proc under --unshare-pid WPS fails to start.
   #  - The WPS launcher script calls awk/sed internally, but NixOS has no /bin, so
   #    we expose the system bins as /bin and set PATH=/bin for it.
   # Network is shared (license checks / cloud); swap --share-net for --unshare-net
   # to go fully offline.
-  mkWrapper = app: pkgs.writeShellScript app ''
-    XDG_RUNTIME_DIR="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
-    ${pkgs.bubblewrap}/bin/bwrap \
-      --unshare-all \
-      --die-with-parent \
-      --new-session \
-      --share-net \
-      --bind / / \
-      --tmpfs /tmp \
-      --dev-bind /tmp/.X11-unix /tmp/.X11-unix \
-      --dev-bind /dev /dev \
-      --proc /proc \
-      --ro-bind /run/current-system/sw/bin /bin \
-      --setenv PATH /bin \
-      --setenv LD_PRELOAD "${pkgs.freetype}/lib/libfreetype.so" \
-      --setenv LD_LIBRARY_PATH "${pkgs.lib.makeLibraryPath [ pkgs.gcc-unwrapped.lib ]}" \
-      ${wpsPkg}/bin/${app} "$@"
-    ${pkgs.procps}/bin/pkill -x wpscloudsvr 2>/dev/null || true
-  '';
+  mkWrapper =
+    app:
+    pkgs.writeShellScript app ''
+      XDG_RUNTIME_DIR="''${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+      ${pkgs.bubblewrap}/bin/bwrap \
+        --unshare-all \
+        --die-with-parent \
+        --new-session \
+        --share-net \
+        --bind / / \
+        --dev-bind /tmp/.X11-unix /tmp/.X11-unix \
+        --dev-bind /dev /dev \
+        --proc /proc \
+        --ro-bind /run/current-system/sw/bin /bin \
+        --setenv PATH /bin \
+        --setenv LD_PRELOAD "${pkgs.freetype}/lib/libfreetype.so" \
+        --setenv LD_LIBRARY_PATH "${pkgs.lib.makeLibraryPath [ pkgs.gcc-unwrapped.lib ]}" \
+        ${wpsPkg}/bin/${app} "$@"
+      wps_status=$?
+      ${pkgs.procps}/bin/pkill -x wpscloudsvr 2>/dev/null || true
+      exit "$wps_status"
+    '';
 
-  apps = [ "wps" "wpp" "et" "wpspdf" ];
+  apps = [
+    "wps"
+    "wpp"
+    "et"
+    "wpspdf"
+  ];
 
   # Wrapper package exposing wps/wpp/et/wpspdf on PATH, plus the stock .desktop
   # files and icons copied from wpsoffice-cn. We install ONLY this (not
@@ -61,11 +68,10 @@ let
       chmod -R u+w $out/share/applications
       for f in $out/share/applications/*.desktop; do
         [ -e "$f" ] || continue
-        sed -i 's|${wpsPkg}/bin/|$out/bin/|g' "$f"
+        sed -i "s|${wpsPkg}/bin/|$out/bin/|g" "$f"
       done
-    '' + builtins.concatStringsSep "\n" (
-      map (app: "ln -s ${mkWrapper app} $out/bin/${app}") apps
-    );
+    ''
+    + builtins.concatStringsSep "\n" (map (app: "ln -s ${mkWrapper app} $out/bin/${app}") apps);
   };
 in
 {

@@ -9,7 +9,8 @@
     openFirewall = true;
     useRoutingFeatures = "client";
 
-    extraUpFlags = [
+    # Apply preferences independently of interactive login and stored credentials.
+    extraSetFlags = [
       "--accept-dns=false"
     ];
   };

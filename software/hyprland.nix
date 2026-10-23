@@ -25,6 +25,24 @@
   };
   programs.dconf.enable = true;
 
+  # Standalone Thunar: https://wiki.nixos.org/wiki/Thunar
+  # The NixOS module also enables Xfconf and registers Thunar's services.
+  programs.thunar = {
+    enable = true;
+    plugins = [
+      (pkgs.thunar-archive-plugin.overrideAttrs (old: {
+        # The plugin searches its own libexec directory; Xarchiver ships its
+        # adapter separately, so make it discoverable there.
+        postInstall = (old.postInstall or "") + ''
+          ln -s ${pkgs.xarchiver}/libexec/thunar-archive-plugin/xarchiver.tap \
+            $out/libexec/thunar-archive-plugin/xarchiver.tap
+        '';
+      }))
+    ];
+  };
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
+
   # Darkman publishes the application preference; Quickshell observes its socket.
   services.dbus.packages = [ pkgs.darkman ];
   systemd.packages = [ pkgs.darkman ];
@@ -104,6 +122,9 @@
     playerctl
     pavucontrol
     udiskie
+
+    # Backend for Thunar's archive plugin, also usable as a standalone GUI.
+    xarchiver
 
     # Session-wide appearance assets are also available to the greeter.
     bibata-cursors

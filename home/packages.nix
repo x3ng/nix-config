@@ -75,7 +75,10 @@
 
     # Common user tools, kept available when changing the desktop session.
     imv
-    xarchiver
+    meld
+    baobab
+    catfish
+    kdePackages.okular
 
     ffmpeg
     vlc
@@ -85,7 +88,6 @@
     obs-studio
 
     flameshot
-    thunar
     thunderbird
     rnote
     zathura
@@ -98,6 +100,7 @@
     # Networking and remote access
     nmap
     aria2
+    motrix
     rayburst
     proxychains-ng
     clash-verge-rev

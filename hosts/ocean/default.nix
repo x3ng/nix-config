@@ -8,6 +8,7 @@
     ../../system/boot.nix
     ../../system/locale.nix
     ../../system/nix.nix
+    ../../system/storage.nix
     ../../system/fonts.nix
     ../../system/users
     ../../system/users/xen.nix

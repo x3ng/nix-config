@@ -69,6 +69,7 @@
     neovim
     emacs-pgtk
     vscodium
+    zed-editor
 
     # Desktop applications
     chromium

@@ -1,5 +1,6 @@
 *CLAUDE*
 .direnv/
+.pi/
 result
 result-*
 tmp/

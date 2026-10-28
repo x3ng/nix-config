@@ -35,7 +35,6 @@
     ../../hardware/cpu/kaby-lake.nix
     ../../hardware/gpu/kaby-lake.nix
     ../../hardware/input/trackpoint.nix
-    ../../hardware/thinkpad/battery.nix
     ../../hardware/power/ppd.nix
     ../../hardware/storage/nvme.nix
     ../../hardware/storage/fstrim.nix

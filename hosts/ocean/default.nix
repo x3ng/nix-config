@@ -2,7 +2,7 @@
 {
   imports = [
     ../../disko/single-disk-ext4.nix
-    ./hardware-configuration.nix
+    ./hardware.nix
 
     # system — OS platform layer (required on every host)
     ../../system/boot.nix
@@ -33,12 +33,7 @@
     ../../hardware/firmware.nix
     ../../hardware/audio.nix
     ../../hardware/bluetooth.nix
-    ../../hardware/cpu/kaby-lake.nix
-    ../../hardware/gpu/kaby-lake.nix
-    ../../hardware/input/trackpoint.nix
     ../../hardware/power/ppd.nix
-    ../../hardware/storage/nvme.nix
-    ../../hardware/storage/fstrim.nix
   ];
 
   local.storage.disks = [

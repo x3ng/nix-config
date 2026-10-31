@@ -104,7 +104,6 @@
     motrix
     rayburst
     proxychains-ng
-    clash-verge-rev
     tigervnc
     filezilla
     rustdesk-flutter

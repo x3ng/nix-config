@@ -12,8 +12,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Keep Denial's own nixpkgs pin: it defines the shared Flutter engine cache.
-    denial.url = "github:denialwm/denial";
   };
 
   outputs =
@@ -21,7 +19,6 @@
       nixpkgs,
       home-manager,
       disko,
-      denial,
       ...
     }:
     let
@@ -38,7 +35,6 @@
         inherit system;
         modules = [
           disko.nixosModules.disko
-          denial.nixosModules.default
           ./hosts/ocean
         ];
       };

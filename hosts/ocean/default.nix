@@ -19,6 +19,7 @@
     ../../software/localsend.nix
     ../../software/tailscale.nix
     ../../software/mihomo.nix
+    ../../software/clash-verge.nix
     ../../software/keyd.nix
     ../../software/kmscon.nix
     ../../software/cups.nix

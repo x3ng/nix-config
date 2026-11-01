@@ -19,6 +19,7 @@
   imports = [
     ./packages.nix
     ./modules/bash.nix
+    ./modules/zsh.nix
     ./modules/starship.nix
     ./modules/fzf.nix
     ./modules/yazi.nix

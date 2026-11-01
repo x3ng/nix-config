@@ -48,9 +48,9 @@
         "Noto Serif CJK SC"
       ];
       monospace = [
-        "IosevkaTerm Nerd Font Mono"
         "Maple Mono NF CN"
         "Sarasa Mono SC"
+        "IosevkaTerm Nerd Font Mono"
         "Monaspace Neon"
         "Monaspace Argon"
         "JetBrains Mono"

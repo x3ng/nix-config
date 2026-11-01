@@ -33,6 +33,7 @@
 
     # Development and command-line tools
     git
+    lazygit
     gnumake
     cmake
     ripgrep

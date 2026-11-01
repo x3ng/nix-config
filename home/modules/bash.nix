@@ -1,4 +1,4 @@
 _: {
-  # bash 本体；starship/fzf/zoxide/direnv 的集成由各自模块负责
+  # Keep Bash available as a fallback; integrations live in their own modules.
   programs.bash.enable = true;
 }

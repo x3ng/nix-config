@@ -5,7 +5,7 @@
     enable = true;
     useXkbConfig = true;
     config = {
-      font-name = "IosevkaTerm Nerd Font Mono";
+      font-name = "Maple Mono NF CN";
     };
   };
 }

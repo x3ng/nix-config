@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     # Language runtimes and toolchains
     gcc
-    zig
     go
     nodejs
     python3

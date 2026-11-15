@@ -4,6 +4,10 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nullshell = {
+      url = "github:x3ng/nullshell/master";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +27,7 @@
       nixpkgs,
       nixos-hardware,
       home-manager,
+      nullshell,
       disko,
       ...
     }:
@@ -41,6 +46,7 @@
         specialArgs = { inherit nixos-hardware; };
         modules = [
           disko.nixosModules.disko
+          nullshell.nixosModules.default
           ./hosts/ocean
         ];
       };

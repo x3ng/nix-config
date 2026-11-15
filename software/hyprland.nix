@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -14,14 +13,12 @@
   xdg.portal.xdgOpenUsePortal = true;
   xdg.portal.extraPortals = [
     pkgs.xdg-desktop-portal-gtk
-    pkgs.darkman
   ];
   xdg.portal.config.hyprland = {
     default = [
       "hyprland"
       "gtk"
     ];
-    "org.freedesktop.impl.portal.Settings" = [ "darkman" ];
   };
   programs.dconf.enable = true;
 
@@ -43,49 +40,31 @@
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
-  # Darkman publishes the application preference; Quickshell observes its socket.
-  services.dbus.packages = [ pkgs.darkman ];
-  systemd.packages = [ pkgs.darkman ];
-  environment.etc."xdg/darkman/config.yaml".text = ''
-    usegeoclue: true
-    portal: true
-  '';
-  systemd.user.services.darkman = {
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
+  # Install the complete runtime here; Quickshell discovers independent user QML.
+  # Explicit PAM/portal/GeoClue/greeter integration is system environment only.
+  programs.nullshell = {
+    enable = true;
+    appearance.portal.enable = true;
+    appearance.geoclue.enable = true;
+    greeter.enable = true;
+    greeter.appearance.sourceUser = "xen";
   };
 
-  # Hyprland has no location agent of its own.
-  services.geoclue2 = {
-    enable = true;
-    enableDemoAgent = true;
-    appConfig.darkman = {
-      isAllowed = true;
-      isSystem = true;
-    };
-  };
-  # Include GeoClue's IP fallback, omitted by the NixOS module.
+  # NixOS currently omits GeoClue's upstream IP-source defaults. City-level
+  # requests need this fallback when Wi-Fi positioning is unavailable.
   environment.etc."geoclue/geoclue.conf".text = lib.mkAfter ''
     [ip]
     enable=true
     method=ichnaea
   '';
 
-  # Lock screen PAM
-  security.pam.services.hyprlock = { };
+  # Bind the optional monitor helper to the graphical session that starts it.
+  systemd.user.services.hyprmoncfgd = {
+    overrideStrategy = "asDropin";
+    partOf = [ "graphical-session.target" ];
+  };
 
-  # System services
   services = {
-    greetd = {
-      enable = true;
-      settings.default_session = {
-        user = "greeter";
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --asterisks --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
-      };
-    };
-
-    upower.enable = true;
     logind.settings.Login = {
       HandleLidSwitch = "suspend";
       HandleLidSwitchExternalPower = "lock";
@@ -95,20 +74,13 @@
 
   environment.systemPackages = with pkgs; [
     # Hyprland-session components; keep these with the optional compositor module.
-    hyprpolkitagent
-    hyprlock
-    hypridle
-    hyprshutdown
     hyprmoncfg
-    quickshell
-    # On-demand Wayland keyboard, opened from the Quickshell launcher.
-    wvkbd
-    darkman
-    hyprpaper
 
     # Toolkit appearance settings for this session without a desktop control center.
     nwg-look
     qt6Packages.qt6ct
+    # Qt Widgets style; select Breeze in qt6ct after installation.
+    kdePackages.breeze
 
     # Screenshot and clipboard commands used by the Hyprland bindings/startup.
     grim

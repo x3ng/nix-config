@@ -27,6 +27,7 @@
     ../../software/libvirt.nix
     ../../software/flatpak.nix
     ../../software/appimage.nix
+    ../../software/steam.nix
     ../../software/hyprland.nix
 
     # hardware — physical devices

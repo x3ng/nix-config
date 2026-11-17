@@ -72,6 +72,8 @@ User QML is maintained independently. Hyprland dotfiles start `nullshell desktop
 `nullshell sleep-bridge`. The launchers use Quickshell's native configuration
 names; installation never creates or updates the QML checkout. Greeter resources
 are a separate system-owned snapshot and never load user HOME code.
+The sleep bridge is provided by the Rust helper, without a hypridle dependency
+or configuration file. Quickshell continues to own the idle timers and locker.
 
 The Settings portal publishes nullshell's effective appearance mode. Manual/auto
 choices and coordinates belong to the application/user, not Nix. There is no
@@ -94,7 +96,7 @@ because the old user-profile commands otherwise take precedence in PATH.
 Do the initial cutover from a TTY after logging out of the graphical session:
 activate the new OS and the one-time Home Manager cleanup, switch the independent
 QML checkout to the accepted `master`, and deploy the Hyprland dotfiles with
-`~/.dotfiles/deploy/deploy hypr` (including native `hypridle.conf`), then log into
+`~/.dotfiles/deploy/deploy hypr` (which retires the old owned `hypridle.conf` link), then log into
 Hyprland. Nullshell retains its original development history with
 a boundary-fix commit. The live checkout may still be detached to avoid hot reload;
 inspect its status and preserve local changes before switching branches. No Nix

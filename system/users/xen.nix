@@ -9,12 +9,10 @@ let
 in
 
 {
-  programs.zsh.enable = true;
-
   users.users.${userName} = {
     isNormalUser = true;
     description = userName;
-    shell = pkgs.zsh;
+    shell = pkgs.bashInteractive;
     extraGroups = [ "wheel" ] ++ config.userGroups;
   };
 
